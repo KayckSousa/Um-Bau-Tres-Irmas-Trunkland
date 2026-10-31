@@ -1,9 +1,55 @@
 *{
-    margin: 10;
-    padding: 0px 10px;
-    background-color: rgb(247, 200, 200);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+   scroll-behavior: smooth;  
+}
+
+body{
+    font-family: Georgia, serif;
+    background-color: #cac4b7;
+    color: #302A32;
+}
+
+header{
+    background-color: rgb(143, 150, 188);
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
 }
 
 .logo{
-    
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a: :hover{
+    color: #D6B779;
+}
+
+.banner{
+    min-height: 550px;
+    background: linear-gradient(
+        rgba(15, 15, 35, 0.75),
+        rhba(15, 15, 35, 0.75)
+    ),
+    url("");
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
 }
