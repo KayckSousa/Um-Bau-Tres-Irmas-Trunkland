@@ -15,7 +15,7 @@ body{
 }
 
 header{
-    background-color: rgb(143, 150, 188);
+    background-color: rgb(49, 28, 4);
     color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
@@ -24,9 +24,17 @@ header{
 }
 
 .logo{
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+.logo img{
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
 }
 
 nav a {
@@ -40,23 +48,27 @@ nav a:hover{
 }
 
 .banner{
-    min-height: 550px;
-    background: linear-gradient(
-        rgba(7, 7, 97, 0.75),
-        rhba(15, 15, 35, 0.75)
-    ),
-    url("");
-
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-image: url("/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Conversa no quarto e baú antigo.png");
     background-size: cover;
     background-position: center;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 60px 10%;
-    color: rgb(3, 84, 104);
 }
 
 .conteudo-banner{
-    max-width: 650px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    
+
 }
 
 .subtitulo {
