@@ -35,14 +35,14 @@ nav a {
     font-size: 15px;
 }
 
-nav a: :hover{
+nav a:hover{
     color: #D6B779;
 }
 
 .banner{
     min-height: 550px;
     background: linear-gradient(
-        rgba(15, 15, 35, 0.75),
+        rgba(7, 7, 97, 0.75),
         rhba(15, 15, 35, 0.75)
     ),
     url("");
@@ -52,4 +52,99 @@ nav a: :hover{
     display: flex;
     align-items: center;
     padding: 60px 10%;
+    color: rgb(3, 84, 104);
+}
+
+.conteudo-banner{
+    max-width: 650px;
+}
+
+.subtitulo {
+    color: #39046b;
+    letter-spacing: 40px;
+    font-size: 13px;
+    margin-bottom: 20px
+}
+
+.banner h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.descricao{
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.botao{
+    display: inline-block;
+    background-color: #0298c5;
+    color: rgb(0, 0, 0);
+    padding: 15px 25px;
+    text-align: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.botao-hover{
+    background-color: black;
+}
+
+.historia{
+    text-align: center;
+    padding: 80px 15%;
+}
+
+.historia h2,
+.personagens h2,
+.trunkland h2{
+    font-size: 32px;
+    margin-bottom:25px;
+}
+
+.historia p,
+.trunkland p{
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.personagens{
+    background-color: #000000;
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.lista-personagem{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.personagem {
+    background-color:rgb(13, 125, 177);
+    width: 200px;
+    padding: 30px 20px;
+    border-radius: 8px;
+}
+
+.personagem h3{
+    margin-bottom: 15px;
+    color:rgb(253, 253, 253);
+}
+
+.trunkland{
+    background-color:#39046b;
+    color: #f6f5f7;
+    text-align: center;
+    padding: 80px 15%;
+}
+
+footer{
+    background-color:rgb(3, 84, 104);
+    color: #e7e2e9;
+    text-align: center;
+    padding: 30px;
+    list-style: 1,8;
 }
