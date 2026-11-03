@@ -14,13 +14,15 @@ body{
     color: #302A32;
 }
 
-header{
+.cabecalho{
     background-color: rgb(49, 28, 4);
     color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 8%;
+    padding: 15px 6%;
+    flex-wrap: wrap;
+    gap:15px;
 }
 
 .logo{
@@ -31,16 +33,24 @@ header{
 }
 
 .logo img{
-    width: 200px;
-    height: 100px;
+    width: 190px;
+    height: 90px;
     object-fit: contain;
     display: block;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-size: 15px;
+    transition: 0.3s;
 }
 
 nav a:hover{
@@ -50,113 +60,220 @@ nav a:hover{
 .banner{
     position: relative;
     width: 100%;
-    height: 400px;
-    background-image: url("/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Conversa no quarto e baú antigo.png");
-    background-size: cover;
-    background-position: center;
+    min-height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.imagem-banner{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(45%);
 }
 
 .conteudo-banner{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    z-index: 2;
     text-align: center;
     color: white;
-    z-index: 2;
+    max-width: 900px;
+    padding: 40px 25px;
     
 
 }
 
 .subtitulo {
     color: #39046b;
-    letter-spacing: 40px;
-    font-size: 13px;
-    margin-bottom: 20px
+    letter-spacing: 5px;
+    font-size: 14px;
+    margin-bottom: 25px
 }
 
 .banner h1{
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 46px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 8px black;
 }
 
 .descricao{
     font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 30px;
+    line-height: 1.8;
+    margin-bottom: 35px;
 }
 
 .botao{
     display: inline-block;
     background-color: #0298c5;
-    color: rgb(0, 0, 0);
-    padding: 15px 25px;
-    text-align: none;
+    color: #000000;
+    text-decoration: none;
+    padding: 15px 28px;
     font-weight: bold;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 .botao-hover{
     background-color: black;
+    transform: translateY(-3px);
 }
 
 .historia{
     text-align: center;
-    padding: 80px 15%;
+    padding: 90px 15%;
+    background-color: #e8e1d4;
+}
+
+.etiqueta{
+    color: #0298c5;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+    font-size: bold;
 }
 
 .historia h2,
 .personagens h2,
 .trunkland h2{
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom:25px;
 }
 
 .historia p,
 .trunkland p{
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 2;
 }
 
 .personagens{
     background-color: #000000;
-    padding: 80px 8%;
+    padding: 85px 8%;
     text-align: center;
+    color: white;
+}
+
+.personagens h2{
+    color: wheat;
 }
 
 .lista-personagem{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
+    margin-top: 40px;
 }
 
 .personagem {
     background-color:rgb(13, 125, 177);
-    width: 200px;
-    padding: 30px 20px;
-    border-radius: 8px;
+    width: 210px;
+    min-height: 180px;
+    padding: 35px 20px;
+    border-radius: 10px;
+    border: 1px solid #39046b;
+    transition: 0.3s;
+}
+
+.personagem:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px #000000;
 }
 
 .personagem h3{
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     color:rgb(253, 253, 253);
+    font-size: 23px;
+}
+
+.personagem p{
+    color: #f6f5f7;
+    line-height: 1.6;
 }
 
 .trunkland{
     background-color:#39046b;
     color: #f6f5f7;
     text-align: center;
-    padding: 80px 15%;
+    padding: 90px 15%;
+}
+
+.trunkland .etiqueta{
+    color: #39046b;
+}
+
+.trunkland h2{
+    color: #e8e1d4;
+}
+
+.trunkland p:last-child{
+    font-size: 18px;
+    line-height: 1.9;
 }
 
 footer{
     background-color:rgb(3, 84, 104);
     color: #e7e2e9;
     text-align: center;
-    padding: 30px;
-    list-style: 1,8;
+    padding: 35px 20px;
 }
+
+footer h3{
+    color: #cac4b7;
+    margin-top: 12px;
+}
+
+footer p {
+    line-height: 1.8;
+}
+
+.direitos {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #39046b;
+}
+
+@media (max-width: 768px) {
+    .cabecalho{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    .descricao{
+        font-size: 16px;
+    }
+
+    .subtitulo{
+        letter-spacing: 3px;
+        font-size: 11px;
+    }
+
+    .historia,
+    .trunkland{
+        padding: 60px 8%;
+    }
+
+    .historia h2,
+    .personagens h2,
+    .trunkland h2{
+        font-size: 27px;
+    }
+
+    .personagem{
+        width: 100%;
+        max-width: 300px
+    }
+}
+
