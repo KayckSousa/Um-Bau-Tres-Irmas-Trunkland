@@ -150,11 +150,11 @@ nav a:hover{
 }
 
 .personagens{
-    background-color: #000000;
+    background-color: #df9a7a;
     padding: 85px 8%;
     text-align: center;
     color: white;
-}
+}   
 
 .personagens h2{
     color: wheat;
@@ -174,7 +174,7 @@ nav a:hover{
     min-height: 180px;
     padding: 35px 20px;
     border-radius: 10px;
-    border: 1px solid #39046b;
+    border: 1px solid #04066b;
     transition: 0.3s;
 }
 
@@ -195,14 +195,14 @@ nav a:hover{
 }
 
 .trunkland{
-    background-color:#39046b;
+    background-color:#8830da;
     color: #f6f5f7;
     text-align: center;
     padding: 90px 15%;
 }
 
 .trunkland .etiqueta{
-    color: #39046b;
+    color: #edf3f3;
 }
 
 .trunkland h2{
@@ -235,6 +235,7 @@ footer p {
     font-size: 13px;
     color: #39046b;
 }
+
 
 @media (max-width: 768px) {
     .cabecalho{
@@ -277,3 +278,197 @@ footer p {
     }
 }
 
+.pagina-cadastro-trunkland {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    background-image: url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: 'Barlow', 'Segoe UI', sans-serif;
+}
+
+.pagina-cadastro-trunkland .tela {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+    box-sizing: border-box;
+
+    background-image: linear-gradient(rgba(10, 7, 5, 0.48), rgba(10, 7, 5, 0.65)),
+    url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.pagina-cadastro-trunkland .cadastro-card{
+    width: 100%;
+    max-width: 700px;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    background-color: rgba(25, 19, 15, 0.94);
+
+    border: 1px solid #b58b45;
+    border-radius: 12px;
+
+    color: #39046b;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.65);
+}
+
+.pagina-cadastro-trunkland .cadastro-card h1{
+    text-align: center;
+
+    color: #dbdbe4;
+
+    font-size: 29px;
+    font-weight: 700;
+
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.pagina-cadastro-trunkland .cadastro-card h2{
+    color: #c5c5c9;
+
+    font-size: 21px;
+
+    margin-top: 28px;
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid #e2e2ec;
+    padding-bottom: 10px;
+}
+
+.pagina-cadastro-trunkland .cadastro-card label {
+    display: block;
+
+    color: #ded9e2;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.pagina-cadastro-trunkland .cadastro-card input {
+    width: 100%;
+    height: 43px;
+
+    padding: 10px 13px;
+
+    box-sizing: border-box;
+
+    background-color: #e6e6ec;
+
+    border: 1px solid #09a8d8;
+    border-radius: 6px;
+
+    color: #000000;
+
+    font-size: 15px;
+
+    margin-bottom: 18px;
+
+    outline: none;
+}
+
+.pagina-cadastro-trunkland .cadastro-card select {
+    width: 100%;
+    height: 45px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    background-color: #e8e8ec;
+
+    border: 1px solid #f2f1f3;
+    border-radius: 6px;
+
+    color: #0d0d0e;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+
+    cursor: pointer;
+}
+
+.pagina-cadastro-trunkland .cadastro-card input:focus,
+.pagina-cadastro-trunkland .cadastro-card select:focus {
+    border: #000000;
+
+    box-shadow: 0 0 7px rgba(227, 176, 98, 0.35);
+}
+
+.pagina-cadastro-trunkland .cadastro-card input::placeholder{
+    color: #000000;
+}
+
+.pagina-cadastro-trunkland .cadastro-card button{
+    display: block;
+
+    width: 220px;
+    height: 45px;
+
+    margin: 25px auto 0;
+
+    background-color: linear-gradient(135deg, #e0e1ee, #8830da);
+
+    border: 1px solid #302A32;
+    border-radius: 6px;
+
+    color: #04066b;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.35;
+}
+
+.pagina-cadastro-trunkland .cadastro-card button:hover {
+    background: linear-gradient(135deg, #0298c5, #8830da);
+
+    transform: translate(-2px);
+
+    box-shadow: 0 5px 15px rgba(227, 176, 98, 0.25);
+}
+
+@media screen and (max-width: 600px) {
+    .pagina-cadastro-trunkland .tela{
+    padding: 20px 12px;
+    background-attachment: scroll;
+}
+
+.pagina-cadastro-trunkland .cadastro-card{
+    padding: 22px 17px;
+}
+
+.pagina-cadastro-trunkland .cadastro-card h1{
+    font-size: 23px;
+}
+
+.pagina-cadastro-trunkland .cadastro-card h2{
+    font-size: 18px;
+}
+.pagina-cadastro-trunkland .cadastro-card button{
+    width: 100%;
+}
+}

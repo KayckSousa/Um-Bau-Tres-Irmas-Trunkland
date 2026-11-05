@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
  </head>
- <body>
-    
- </body>
- </html>
- <h1>Faça seu login para ser membro Reino das Estrelas</h1>
+ <body class="pagina-cadastro-trunkland">
+    <div class="tela">
+   <div class="cadastro-card">
+ <h1>Faça seu cadastro e seja membro de Trunkland</h1>
     <label for="ipt_nome">Insira seu nome de Usuário</label>
     <input placeholder="Insira sua senha de Usuário" id="ipt_nome"><br><br>
     <label for="ipt_nacao">Insira seu país de origem</label>
@@ -54,6 +54,8 @@
        <option value="conpelivia">Ducado da Conpelivia(RD)</option>
        <option value="chisgard">Reino Chisgard(RD)</option>
        <option value="afregarbat">Reino de Afregarbat(RE)</option>
+       <option value="obscure">Floresta Obscure Kriedtch(RQ)</option>
+       <option value="psisvânia">Reino da Psisvânia(RQ)</option>
        <option value="numitania">Republica Numitania(RQ)</option>
        <option value="soloriental">Republica Soloriental(RQ)</option>
        <option value="nejtodord">Reino Nejtodord(RQ)</option>
@@ -81,4 +83,30 @@
       <option value="catepoleris">Catepoleris</option>
       <option value="">Isthelins</option>
     </select>
-    <label for=""></label>
+    <div class="botao">
+    <button onclick="Cadastrar()">Cadastrar</button>
+    <div id="div_msg"></div>
+    </div>
+    </div>
+    </div>
+ </body>
+ </html>
+
+ <script>
+   function Cadastrar(){
+      let reinos = [
+      "Reino das Flores",
+      "Reino do Gelo",
+      "Reino dos Risos",
+      "Reino Esquecido",
+      "Reino Quebrado",
+      "Reino do Sol"
+      ];
+
+      for (let i = 0; i < reinos.length; i++) {
+      div_msg.innerHTML += `<option value="${reinos[i]}">${reinos[i]}</option>`;
+      }
+   }
+
+ </script>
+ 
