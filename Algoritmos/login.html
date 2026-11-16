@@ -1,22 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+
+    <title>Login | Trunkland</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Faça seu login de Membro</h1>
-    <form id="formLogin" data-validate="simple">
-        <label for="ipt_nome">Insira seu nome de Usuário</label>
-        <input placeholder="Insira seu nome" id="ipt_nome" name="nome" required><br><br>
-        <label for="ipt_email">Insira seu email</label>
-        <input placeholder="Insira seu email" id="ipt_email" name="email" type="email" required><br><br>
-        <label for="ipt_senha">Insira sua senha</label>
-        <input placeholder="Insira sua senha" id="ipt_senha" name="senha" type="password" required><br><br>
-        <button type="submit">Entrar</button>
-</form>
-</form>
-    <script src="assets/js/main.js" defer></script>
+
+<body class="pagina-login-trunkland">
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <a href="index.html" class="logo">
+            <img src="imagens/Logotipo Trunkland_ Baú Dourado Fantástico.png"
+                 alt="Logotipo Trunkland">
+        </a>
+
+        <nav>
+            <a href="index.html#inicio">Início</a>
+            <a href="index.html#historia">História</a>
+            <a href="index.html#personagens">Personagens</a>
+            <a href="index.html#trunkland">Trunkland</a>
+            <a href="cadastro.html">Cadastro</a>
+            <a href="login.html" class="ativo">Login</a>
+        </nav>
+
+    </header>
+
+    <!-- TELA DE LOGIN -->
+    <main class="tela-login">
+
+        <div class="login-card">
+
+            <p class="etiqueta">O BAÚ ESTAVA ESPERANDO POR VOCÊ</p>
+
+            <h1>Bem-vindo(a) de volta, valente!</h1>
+
+            <p class="texto-login">
+                Sua jornada por Trunkland ainda não terminou.
+                Entre novamente e continue descobrindo
+                os mistérios deste mundo fantástico.
+            </p>
+
+            <form id="formLogin">
+
+                <div class="campo">
+                    <label for="ipt_nome">
+                        Nome de usuário
+                    </label>
+
+                    <input
+                        type="text"
+                        id="ipt_nome"
+                        name="nome"
+                        placeholder="Digite seu nome de usuário"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="ipt_email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="ipt_senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required>
+                </div>
+
+                <button type="submit" class="botao-login">
+                    Entrar em Trunkland
+                </button>
+
+                <div id="div_msg_login"></div>
+
+            </form>
+
+            <p class="texto-cadastro-login">
+                Ainda não é membro de Trunkland?
+                <a href="cadastro.html">Cadastre-se</a>
+            </p>
+
+            <a href="index.html" class="voltar-inicio">
+                ← Voltar para o início
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <h3>Um Baú, Três Irmãs & Trunkland</h3>
+
+        <p>Uma história de fantasia, família e mistério.</p>
+
+    </footer>
+
+    <script src="login.js"></script>
+
+    
 </body>
 </html>
+

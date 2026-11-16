@@ -88,7 +88,7 @@ nav a:hover{
 }
 
 .subtitulo {
-    color: #39046b;
+    color: #fdfdfd;
     letter-spacing: 5px;
     font-size: 14px;
     margin-bottom: 25px
@@ -688,6 +688,148 @@ footer p {
     }
 
     .cadastro-card h1 {
+        font-size: 24px;
+    }
+}
+
+/* ===== LOGIN TRUNKLAND ===== */
+
+.pagina-login-trunkland {
+    margin: 0;
+    background: linear-gradient(
+        135deg,
+        #21152c,
+        #493052,
+        #241b35
+    );
+    color: white;
+    font-family: Georgia, serif;
+}
+
+/* ÁREA PRINCIPAL */
+
+.tela-login {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* CARD DE LOGIN */
+
+.login-card {
+    width: 100%;
+    max-width: 520px;
+    background-color: #f8f0df;
+    color: #34233b;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+}
+
+.login-card h1 {
+    color: #38233f;
+    text-align: center;
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+
+.login-card .etiqueta {
+    color: #a77b35;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.login-card .texto-login {
+    text-align: center;
+    color: #685a68;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* CAMPOS */
+
+.login-card .campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.login-card .campo label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #49334d;
+}
+
+.login-card .campo input {
+    padding: 14px;
+    border: 1px solid #c7b8a0;
+    border-radius: 8px;
+    background-color: #fffdf8;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.login-card .campo input:focus {
+    border-color: #b58a42;
+    box-shadow: 0 0 5px rgba(181,138,66,0.4);
+}
+
+/* BOTÃO */
+
+.botao-login {
+    width: 100%;
+    padding: 15px;
+    background-color: #493052;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-login:hover {
+    background-color: #a77b35;
+    transform: translateY(-2px);
+}
+
+/* MENSAGEM */
+
+#div_msg_login {
+    text-align: center;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+/* CADASTRO */
+
+.texto-cadastro-login {
+    text-align: center;
+    margin-top: 28px;
+    color: #685a68;
+}
+
+.texto-cadastro-login a {
+    color: #936a2e;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+
+    .login-card {
+        padding: 28px 20px;
+    }
+
+    .login-card h1 {
         font-size: 24px;
     }
 }
