@@ -7,12 +7,16 @@
 </head>
 <body>
     <h1>Faça seu login de Membro</h1>
-    <label for="ipt_nome">Insira seu nome de Usuário</label>
-    <input placeholder="Insira seu nome" id="ipt_nome"><br><br>
-    <label for="ipt_email">Insira seu email</label>
-    <input placeholder="Insira seu email" id="ipt_email"><br><br>
-    <label for="ipt_senha">Insira sua senha</label>
-    <input placeholder="Insira sua senha" id="ipt_senha"><br><br>
-
+    <form id="formLogin" data-validate="simple">
+        <label for="ipt_nome">Insira seu nome de Usuário</label>
+        <input placeholder="Insira seu nome" id="ipt_nome" name="nome" required><br><br>
+        <label for="ipt_email">Insira seu email</label>
+        <input placeholder="Insira seu email" id="ipt_email" name="email" type="email" required><br><br>
+        <label for="ipt_senha">Insira sua senha</label>
+        <input placeholder="Insira sua senha" id="ipt_senha" name="senha" type="password" required><br><br>
+        <button type="submit">Entrar</button>
+</form>
+</form>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>

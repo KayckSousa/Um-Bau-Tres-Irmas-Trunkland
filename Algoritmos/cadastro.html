@@ -1,114 +1,199 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Cadastro</title>
+
+    <title>Cadastro | Trunkland</title>
+
     <link rel="stylesheet" href="style.css">
- </head>
- <body class="pagina-cadastro-trunkland">
-   <header>
-   </header>
-    <div class="tela">
-   <div class="cadastro-card">
- <h1>Faça seu cadastro e seja membro de Trunkland</h1>
-    <label for="ipt_nome">Insira seu nome de Usuário</label>
-    <input placeholder="Insira sua senha de Usuário" id="ipt_nome"><br><br>
-    <label for="ipt_nacao">Insira seu país de origem</label>
-    <input placeholder="Insira o nome da sua nação" id="ipt_nacao"><br><br>
-    <label for="ipt_email">Insira seu email</label>
-    <input placeholder="Insira seu email" id="ipt_email"><br><br>
-    <label for="ipt_senha">Insira sua senha</label>
-    <input placeholder="Insira sua senha" id="ipt_senha"><br><br>
-    <label for="ipt_senha2">Insira sua senha novamente</label>
-    <input placeholder="Insira sua senha novamente" id="ipt_senha2"><br><br>
-    <h2>Faça sua escolha de nação</h2>
-    <label for="ipt_reino">Escolha o reino/republica que se indentifica</label>
-    <select name="reino" id="ipt_reino">
-       <option value="flores">Reino das Flores(RF)</option>
-       <option value="gelo">Reino Gelado(RG)</option>
-       <option value="risos">Reino da Diversão(RD)</option>
-       <option value="reino esquecido">Reino Esquecido(RE)</option>
-       <option value="quebrada">Republica Quebrada(RQ)</option>
-       <option value="sol">Reino do Sol(RS)</option>
-      </select><br>
-    <label for="ipt_federado">Escolha seu reino federado/republica</label>
-    <select name="federado" id="ipt_federado">
-       <option value="ruzis">Reino Ruzis(RF)</option>
-       <option value="antiga">Terra Antiga(RF)</option>
-       <option value="scands">Terras Scands(RF)</option>
-       <option value="prolan">Terra dos Lagos</option>
-       <option value="rume">Vice Reino Rumé(RF)</option>
-       <option value="colquidas">Terras Colquidas(RF)</option>
-       <option value="bulues">Território de Bulues(RF)</option>
-       <option value="magerlon">Reino Magermon(RF)</option>
-       <option value="franbator">Reino Franbator(RF)</option>
-       <option value="ibekers">Reino Ibeker(RF)</option>
-       <option value="itrapafor">Reino Itrapafor(RF)</option>
-       <option value="capital">Reino Capital(RF)</option>
-       <option value="purtolian">Ducado de Purtolian(RG)</option>
-       <option value="ottivenia">Reino de Ottivenia(RG)</option>
-       <option value="sul">Ducado do Sul(RG)</option>
-       <option value="oceano">Reino do Oceano(RG)</option>
-       <option value="mexquerzim">Reino Mexquerzim(RD)</option>
-       <option value="pratiado">Reino Pratiado(RD)</option>
-       <option value="grandemor">Grão Grandemor(RD)</option>
-       <option value="conpelivia">Ducado da Conpelivia(RD)</option>
-       <option value="chisgard">Reino Chisgard(RD)</option>
-       <option value="afregarbat">Reino de Afregarbat(RE)</option>
-       <option value="obscure">Floresta Obscure Kriedtch(RQ)</option>
-       <option value="psisvânia">Reino da Psisvânia(RQ)</option>
-       <option value="numitania">Republica Numitania(RQ)</option>
-       <option value="soloriental">Republica Soloriental(RQ)</option>
-       <option value="nejtodord">Reino Nejtodord(RQ)</option>
-       <option value="qagard">Republica Qagard(RQ)</option>
-       <option value="esteptans">Republica Esteptans(RQ)</option>
-       <option value="javasia">Republica da Javasia(RS)</option>
-       <option value="josol">Reino Josol(RS)</option>
-       <option value="japtain">Reino Japtain(RS)</option>
-       <option value="indrialom">Reino indrialom(RS)</option>
-       <option value="mandoghuan">Reino Mandoghuan(RS)</option>
-       <option value="filbior">Reino Filbior(RS)</option>
-      </select><br>
-    <label for="ipt_cla">Escolha o clã que se indentifica</label>
-    <select name="cla" id="ipt_cla">
-      <option value="ortgorods">Ortgorods</option>
-      <option value="primoders">Primoders</option>
-      <option value="copquerkirs">Copquerkirs</option>
-      <option value="provelenians">Provelenians</option>
-      <option value="angardons">Angardons</option>
-      <option value="batars">Batars</option>
-      <option value="Pentzeradins">Pentzeradins</option>
-      <option value="lutivins">Lutivins</option>
-      <option value="Preskalians">Preskalians</option>
-      <option value="Metdalons">Metdalons</option>
-      <option value="catepoleris">Catepoleris</option>
-      <option value="">Isthelins</option>
-    </select>
-    <div class="botao">
-    <button onclick="Cadastrar()">Cadastrar</button>
-    <div id="div_msg"></div>
-    </div>
-    </div>
-    </div>
- </body>
- </html>
+</head>
 
- <script>
-   function Cadastrar(){
-      let reinos = [
-      "Reino das Flores",
-      "Reino do Gelo",
-      "Reino dos Risos",
-      "Reino Esquecido",
-      "Reino Quebrado",
-      "Reino do Sol"
-      ];
+<body class="pagina-cadastro-trunkland">
 
-      for (let i = 0; i < reinos.length; i++) {
-      div_msg.innerHTML += `<option value="${reinos[i]}">${reinos[i]}</option>`;
-      }
-   }
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <a href="index.html" class="logo">
+            <img src="imagens/Logotipo Trunkland_ Baú Dourado Fantástico.png"
+                 alt="Logotipo Trunkland">
+        </a>
 
- </script>
- 
+        <nav>
+            <a class="nav-link" href="index.html#inicio">Início</a>
+            <a class="nav-link" href="index.html#historia">História</a>
+            <a class="nav-link" href="index.html#personagens">Personagens</a>
+            <a class="nav-link" href="index.html#trunkland">Trunkland</a>
+            <a class="nav-link ativo" href="cadastro.html">Cadastro</a>
+            <a class="nav-link" href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- CADASTRO -->
+    <main class="tela-cadastro">
+
+        <div class="cadastro-card">
+
+            <p class="etiqueta">SEJA BEM-VINDO A TRUNKLAND</p>
+
+            <h1>Faça parte deste mundo fantástico!</h1>
+
+            <p class="texto-cadastro">
+                Crie sua conta, escolha sua nação e descubra
+                os mistérios que existem dentro do baú.
+            </p>
+
+            <form id="formCadastro" data-validate="simple">
+
+                <div class="campo">
+                    <label for="ipt_nome">Nome de usuário</label>
+                    <input type="text" id="ipt_nome"
+                           placeholder="Digite seu nome de usuário"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_nacao">País de origem</label>
+                    <input type="text" id="ipt_nacao"
+                           placeholder="Digite seu país"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_email">E-mail</label>
+                    <input type="email" id="ipt_email"
+                           placeholder="Digite seu e-mail"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_senha">Senha</label>
+                    <input type="password" id="ipt_senha"
+                           placeholder="Crie sua senha"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_senha2">Confirme sua senha</label>
+                    <input type="password" id="ipt_senha2"
+                           placeholder="Digite sua senha novamente"
+                           required>
+                </div>
+
+                <div class="divisor"></div>
+
+                <h2>Escolha sua nação</h2>
+
+                <div class="campo">
+                    <label for="ipt_reino">
+                        Reino ou República
+                    </label>
+
+                    <select id="ipt_reino" required>
+                        <option value="">Selecione sua nação</option>
+                        <option value="flores">Reino das Flores (RF)</option>
+                        <option value="gelo">Reino Gelado (RG)</option>
+                        <option value="risos">Reino da Diversão (RD)</option>
+                        <option value="esquecido">Reino Esquecido (RE)</option>
+                        <option value="quebrada">República Quebrada (RQ)</option>
+                        <option value="sol">Reino do Sol (RS)</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_federado">
+                        Reino Federado ou República
+                    </label>
+
+                    <select id="ipt_federado" required>
+                        <option value="">Escolha seu território</option>
+                        <option value="ruzis">Reino Ruzis</option>
+                        <option value="antiga">Terra Antiga</option>
+                        <option value="scands">Terras Scands</option>
+                        <option value="prolan">Terra dos Lagos</option>
+                        <option value="rume">Vice Reino Rumé</option>
+                        <option value="colquidas">Terras Colquidas</option>
+                        <option value="bulues">Território de Bulues</option>
+                        <option value="magerlon">Reino Magermon</option>
+                        <option value="franbator">Reino Franbator</option>
+                        <option value="ibekers">Reino Ibeker</option>
+                        <option value="itrapafor">Reino Itrapafor</option>
+                        <option value="capital">Reino Capital</option>
+                        <option value="purtolian">Ducado de Purtolian</option>
+                        <option value="ottivenia">Reino de Ottivenia</option>
+                        <option value="sul">Ducado do Sul</option>
+                        <option value="oceano">Reino do Oceano</option>
+                        <option value="mexquerzim">Reino Mexquerzim</option>
+                        <option value="pratiado">Reino Pratiado</option>
+                        <option value="grandemor">Grão Grandemor</option>
+                        <option value="conpelivia">Ducado da Conpelivia</option>
+                        <option value="chisgard">Reino Chisgard</option>
+                        <option value="afregarbat">Reino de Afregarbat</option>
+                        <option value="obscure">Floresta Obscure Kriedtch</option>
+                        <option value="psisvania">Reino da Psisvânia</option>
+                        <option value="numitania">República Numitania</option>
+                        <option value="soloriental">República Soloriental</option>
+                        <option value="nejtodord">Reino Nejtodord</option>
+                        <option value="qagard">República Qagard</option>
+                        <option value="esteptans">República Esteptans</option>
+                        <option value="javasia">República da Javasia</option>
+                        <option value="josol">Reino Josol</option>
+                        <option value="japtain">Reino Japtain</option>
+                        <option value="indrialom">Reino Indrialom</option>
+                        <option value="mandoghuan">Reino Mandoghuan</option>
+                        <option value="filbior">Reino Filbior</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_cla">
+                        Escolha seu clã
+                    </label>
+
+                    <select id="ipt_cla" required>
+                        <option value="">Selecione seu clã</option>
+                        <option value="ortgorods">Ortgorods</option>
+                        <option value="primoders">Primoders</option>
+                        <option value="copquerkirs">Copquerkirs</option>
+                        <option value="provelenians">Provelenians</option>
+                        <option value="angardons">Angardons</option>
+                        <option value="batars">Batars</option>
+                        <option value="pentzeradins">Pentzeradins</option>
+                        <option value="lutivins">Lutivins</option>
+                        <option value="preskalians">Preskalians</option>
+                        <option value="metdalons">Metdalons</option>
+                        <option value="catepoleris">Catepoleris</option>
+                        <option value="isthelins">Isthelins</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="botao-cadastro">
+                    Criar minha conta
+                </button>
+
+                <div id="div_msg"></div>
+
+            </form>
+
+            <p class="texto-login">
+                Já possui uma conta?
+                <a href="login.html">Faça login</a>
+            </p>
+
+            <a href="index.html" class="voltar-inicio">
+                ← Voltar para o início
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+        <h3>Um Baú, Três Irmãs & Trunkland</h3>
+        <p>Uma história de fantasia, família e mistério.</p>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
