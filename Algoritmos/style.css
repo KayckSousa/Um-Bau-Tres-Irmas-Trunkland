@@ -1,38 +1,51 @@
-*{
+
+/* ========================================= */
+/* ===== CONFIGURAÇÕES GERAIS ============== */
+/* ========================================= */
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
-   scroll-behavior: smooth;  
+html {
+    scroll-behavior: smooth;
 }
 
-body{
+body {
     font-family: Georgia, serif;
     background-color: #cac4b7;
     color: #302A32;
 }
 
-.cabecalho{
+
+/* ========================================= */
+/* ===== CABEÇALHO ========================= */
+/* ========================================= */
+
+.cabecalho {
     background-color: rgb(49, 28, 4);
     color: rgb(0, 0, 0);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 15px 6%;
+
     flex-wrap: wrap;
-    gap:15px;
+    gap: 15px;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px;
 }
 
-.logo img{
+.logo img {
     width: 190px;
     height: 90px;
     object-fit: contain;
@@ -53,175 +66,337 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover{
+nav a:hover {
     color: #D6B779;
 }
 
-.banner{
+
+/* ========================================= */
+/* ===== BANNER ============================ */
+/* ========================================= */
+
+.banner {
     position: relative;
     width: 100%;
     min-height: 500px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     overflow: hidden;
 }
 
-.imagem-banner{
+.imagem-banner {
     position: absolute;
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center;
+
     filter: brightness(45%);
 }
 
-.conteudo-banner{
+.conteudo-banner {
     position: relative;
     z-index: 2;
+
     text-align: center;
     color: white;
+
     max-width: 900px;
     padding: 40px 25px;
-    
-
 }
 
 .subtitulo {
     color: #fdfdfd;
     letter-spacing: 5px;
     font-size: 14px;
-    margin-bottom: 25px
+    margin-bottom: 25px;
 }
 
-.banner h1{
+.banner h1 {
     font-size: 46px;
     margin-bottom: 25px;
     text-shadow: 2px 2px 8px black;
 }
 
-.descricao{
+.descricao {
     font-size: 18px;
     line-height: 1.8;
     margin-bottom: 35px;
 }
 
-.botao{
+.botao {
     display: inline-block;
+
     background-color: #0298c5;
     color: #000000;
+
     text-decoration: none;
+
     padding: 15px 28px;
+
     font-weight: bold;
     border-radius: 5px;
+
     transition: 0.3s;
 }
 
-.botao-hover{
+.botao:hover {
     background-color: black;
+    color: white;
     transform: translateY(-3px);
 }
 
-.historia{
+
+/* ========================================= */
+/* ===== HISTÓRIA ========================== */
+/* ========================================= */
+
+.historia {
     text-align: center;
     padding: 90px 15%;
     background-color: #e8e1d4;
 }
 
-.etiqueta{
+.etiqueta {
     color: #0298c5;
     font-size: 13px;
     letter-spacing: 3px;
     margin-bottom: 18px;
-    font-size: bold;
+    font-weight: bold;
 }
 
 .historia h2,
 .personagens h2,
-.trunkland h2{
+.trunkland h2 {
     font-size: 34px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
 }
 
 .historia p,
-.trunkland p{
+.trunkland p {
     font-size: 18px;
     line-height: 2;
 }
 
-.personagens{
-    background-color: #df9a7a;
-    padding: 85px 8%;
+
+/* ========================================= */
+/* ===== PERSONAGENS ======================= */
+/* ========================================= */
+
+.personagens {
+    position: relative;
+
+    background-color: #0b1014;
+    color: #ffffff;
+
+    padding: 100px 8%;
+
+    overflow: hidden;
+
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 49px,
+            rgba(255, 255, 255, 0.045) 50px
+        );
+}
+
+
+/* ===== INTRODUÇÃO DOS PERSONAGENS ===== */
+
+.personagens-introducao {
+    max-width: 850px;
+
+    margin: 0 auto 85px;
+
     text-align: center;
-    color: white;
-}   
-
-.personagens h2{
-    color: wheat;
 }
 
-.lista-personagem{
+.personagens-introducao .etiqueta {
+    color: #d6b779;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.personagens-introducao h2 {
+    color: #ffffff;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.personagens-introducao p:last-child {
+    color: #aeb5bb;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* ===== LISTA VERTICAL ===== */
+
+.lista-personagens {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 40px;
+    flex-direction: column;
+
+    gap: 90px;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
 }
+
+
+/* ===== PERSONAGEM INDIVIDUAL ===== */
 
 .personagem {
-    background-color:rgb(13, 125, 177);
-    width: 210px;
-    min-height: 180px;
-    padding: 35px 20px;
-    border-radius: 10px;
-    border: 1px solid #04066b;
-    transition: 0.3s;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 65px;
+
+    width: 100%;
 }
 
-.personagem:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px #000000;
+
+/* ===== IMAGEM DO PERSONAGEM ===== */
+
+.imagem-personagem {
+    width: 48%;
+
+    height: 390px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 18px;
 }
 
-.personagem h3{
+.imagem-personagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s;
+}
+
+.imagem-personagem img:hover {
+    transform: scale(1.04);
+}
+
+
+/* ===== TEXTO DO PERSONAGEM ===== */
+
+.texto-personagem {
+    flex: 1;
+
+    text-align: left;
+}
+
+.funcao-personagem {
+    display: block;
+
+    color: #d6b779;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
     margin-bottom: 18px;
-    color:rgb(253, 253, 253);
-    font-size: 23px;
 }
 
-.personagem p{
-    color: #f6f5f7;
-    line-height: 1.6;
+.texto-personagem h3 {
+    color: #ffffff;
+
+    font-size: 48px;
+
+    margin-bottom: 22px;
 }
 
-.trunkland{
-    background-color:#8830da;
+.texto-personagem p {
+    color: #b7bdc3;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    max-width: 500px;
+}
+
+
+/* ===== ALTERNÂNCIA DAS IMAGENS ===== */
+
+/* Imagem à direita e texto à esquerda */
+
+.personagem-invertido {
+    flex-direction: row-reverse;
+}
+
+
+/* ========================================= */
+/* ===== TRUNKLAND ========================= */
+/* ========================================= */
+
+.trunkland {
+    background-color: #8830da;
     color: #f6f5f7;
+
     text-align: center;
+
     padding: 90px 15%;
 }
 
-.trunkland .etiqueta{
+.trunkland .etiqueta {
     color: #edf3f3;
 }
 
-.trunkland h2{
+.trunkland h2 {
     color: #e8e1d4;
 }
 
-.trunkland p:last-child{
+.trunkland p:last-child {
     font-size: 18px;
     line-height: 1.9;
 }
 
-footer{
-    background-color:rgb(3, 84, 104);
+
+/* ========================================= */
+/* ===== RODAPÉ ============================ */
+/* ========================================= */
+
+footer {
+    background-color: rgb(3, 84, 104);
     color: #e7e2e9;
+
     text-align: center;
+
     padding: 35px 20px;
 }
 
-footer h3{
+footer h3 {
     color: #cac4b7;
     margin-top: 12px;
 }
@@ -237,46 +412,9 @@ footer p {
 }
 
 
-@media (max-width: 768px) {
-    .cabecalho{
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .banner h1 {
-        font-size: 32px;
-    }
-
-    .descricao{
-        font-size: 16px;
-    }
-
-    .subtitulo{
-        letter-spacing: 3px;
-        font-size: 11px;
-    }
-
-    .historia,
-    .trunkland{
-        padding: 60px 8%;
-    }
-
-    .historia h2,
-    .personagens h2,
-    .trunkland h2{
-        font-size: 27px;
-    }
-
-    .personagem{
-        width: 100%;
-        max-width: 300px
-    }
-}
+/* ========================================= */
+/* ===== CADASTRO TRUNKLAND ================ */
+/* ========================================= */
 
 .pagina-cadastro-trunkland {
     margin: 0;
@@ -284,7 +422,9 @@ footer p {
 
     min-height: 100vh;
 
-    background-image: url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
+    background-image:
+        url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -301,10 +441,13 @@ footer p {
     align-items: center;
 
     padding: 40px 20px;
-    box-sizing: border-box;
 
-    background-image: linear-gradient(rgba(10, 7, 5, 0.48), rgba(10, 7, 5, 0.65)),
-    url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
+    background-image:
+        linear-gradient(
+            rgba(10, 7, 5, 0.48),
+            rgba(10, 7, 5, 0.65)
+        ),
+        url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
 
     background-size: cover;
     background-position: center;
@@ -312,13 +455,11 @@ footer p {
     background-attachment: fixed;
 }
 
-.pagina-cadastro-trunkland .cadastro-card{
+.pagina-cadastro-trunkland .cadastro-card {
     width: 100%;
     max-width: 700px;
 
     padding: 35px;
-
-    box-sizing: border-box;
 
     background-color: rgba(25, 19, 15, 0.94);
 
@@ -330,9 +471,8 @@ footer p {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.65);
 }
 
-.pagina-cadastro-trunkland .cadastro-card h1{
+.pagina-cadastro-trunkland .cadastro-card h1 {
     text-align: center;
-
     color: #dbdbe4;
 
     font-size: 29px;
@@ -342,7 +482,7 @@ footer p {
     margin-bottom: 12px;
 }
 
-.pagina-cadastro-trunkland .cadastro-card h2{
+.pagina-cadastro-trunkland .cadastro-card h2 {
     color: #c5c5c9;
 
     font-size: 21px;
@@ -371,8 +511,6 @@ footer p {
 
     padding: 10px 13px;
 
-    box-sizing: border-box;
-
     background-color: #e6e6ec;
 
     border: 1px solid #09a8d8;
@@ -393,8 +531,6 @@ footer p {
 
     padding: 10px;
 
-    box-sizing: border-box;
-
     background-color: #e8e8ec;
 
     border: 1px solid #f2f1f3;
@@ -411,16 +547,16 @@ footer p {
 
 .pagina-cadastro-trunkland .cadastro-card input:focus,
 .pagina-cadastro-trunkland .cadastro-card select:focus {
-    border: #000000;
+    border: 1px solid #000000;
 
     box-shadow: 0 0 7px rgba(227, 176, 98, 0.35);
 }
 
-.pagina-cadastro-trunkland .cadastro-card input::placeholder{
+.pagina-cadastro-trunkland .cadastro-card input::placeholder {
     color: #000000;
 }
 
-.pagina-cadastro-trunkland .cadastro-card button{
+.pagina-cadastro-trunkland .cadastro-card button {
     display: block;
 
     width: 220px;
@@ -428,139 +564,88 @@ footer p {
 
     margin: 25px auto 0;
 
-    background-color: linear-gradient(135deg, #e0e1ee, #8830da);
+    background: linear-gradient(135deg, #e0e1ee, #8830da);
 
     border: 1px solid #302A32;
     border-radius: 6px;
-    
+
     font-size: 17px;
     font-weight: 700;
 
     cursor: pointer;
 
-    transition: 0.35;
+    transition: 0.35s;
 }
 
 .pagina-cadastro-trunkland .cadastro-card button:hover {
     background: linear-gradient(135deg, #0298c5, #8830da);
 
-    transform: translate(-2px);
+    transform: translateY(-2px);
 
     box-shadow: 0 5px 15px rgba(227, 176, 98, 0.25);
 }
 
-@media screen and (max-width: 600px) {
-    .pagina-cadastro-trunkland .tela{
-    padding: 20px 12px;
-    background-attachment: scroll;
-}
 
-.pagina-cadastro-trunkland .cadastro-card{
-    padding: 22px 17px;
-}
+/* ===== CABEÇALHO ESPECÍFICO DO CADASTRO ===== */
 
-.pagina-cadastro-trunkland .cadastro-card h1{
-    font-size: 23px;
-}
-
-.pagina-cadastro-trunkland .cadastro-card h2{
-    font-size: 18px;
-}
-.pagina-cadastro-trunkland .cadastro-card button{
-    width: 100%;
-}
-}
-
-/* ===== CADASTRO TRUNKLAND ===== */
-
-.pagina-cadastro-trunkland {
-    margin: 0;
-    background: linear-gradient(
-        135deg,
-        #21152c,
-        #493052,
-        #241b35
-    );
-    color: #fff;
-    font-family: Georgia, serif;
-}
-
-/* CABEÇALHO */
-
-.cabecalho {
+.pagina-cadastro-trunkland .cabecalho {
     width: 100%;
     min-height: 90px;
+
     background-color: #21152c;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 10px 5%;
-    box-sizing: border-box;
+
     flex-wrap: wrap;
     gap: 15px;
 }
 
-.logo img {
+.pagina-cadastro-trunkland .logo img {
     width: 75px;
     height: 75px;
     object-fit: contain;
 }
 
-.cabecalho nav {
+.pagina-cadastro-trunkland .cabecalho nav {
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
 }
 
-.cabecalho nav a {
+.pagina-cadastro-trunkland .cabecalho nav a {
     color: #f5e5c2;
     text-decoration: none;
     font-size: 16px;
     transition: 0.3s;
 }
 
-.cabecalho nav a:hover,
-.cabecalho nav a.ativo {
+.pagina-cadastro-trunkland .cabecalho nav a:hover,
+.pagina-cadastro-trunkland .cabecalho nav a.ativo {
     color: #e6b85c;
 }
 
-/* TELA */
 
-.tela-cadastro {
+/* ===== OUTROS ELEMENTOS DO CADASTRO ===== */
+
+.pagina-cadastro-trunkland .tela-cadastro {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 60px 20px;
+}
+
+.pagina-cadastro-trunkland .cadastro-card {
     box-sizing: border-box;
 }
 
-/* CARD */
-
-.cadastro-card {
-    width: 100%;
-    max-width: 650px;
-    background-color: #f8f0df;
-    color: #34233b;
-    padding: 40px;
-    border-radius: 18px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
-    box-sizing: border-box;
-}
-
-.cadastro-card h1 {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 15px;
-    color: #38233f;
-}
-
-.cadastro-card h2 {
-    color: #573b5e;
-    margin-bottom: 20px;
-}
-
-.etiqueta {
+.pagina-cadastro-trunkland .cadastro-card .etiqueta {
     text-align: center;
     color: #a77b35;
     font-size: 13px;
@@ -568,92 +653,94 @@ footer p {
     font-weight: bold;
 }
 
-.texto-cadastro {
+.pagina-cadastro-trunkland .texto-cadastro {
     text-align: center;
     line-height: 1.6;
     margin-bottom: 30px;
     color: #685a68;
 }
 
-/* CAMPOS */
-
-.campo {
+.pagina-cadastro-trunkland .campo {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.campo label {
+.pagina-cadastro-trunkland .campo label {
     font-weight: bold;
     margin-bottom: 8px;
     color: #49334d;
 }
 
-.campo input,
-.campo select {
+.pagina-cadastro-trunkland .campo input,
+.pagina-cadastro-trunkland .campo select {
     padding: 13px;
+
     border: 1px solid #c7b8a0;
     border-radius: 8px;
+
     font-size: 15px;
+
     background-color: #fffdf8;
+
     outline: none;
     color: #34233b;
-    box-sizing: border-box;
+
     width: 100%;
 }
 
-.campo input:focus,
-.campo select:focus {
+.pagina-cadastro-trunkland .campo input:focus,
+.pagina-cadastro-trunkland .campo select:focus {
     border-color: #b58a42;
     box-shadow: 0 0 5px rgba(181,138,66,0.4);
 }
 
-.divisor {
+.pagina-cadastro-trunkland .divisor {
     height: 1px;
     background-color: #d5c5a9;
     margin: 30px 0;
 }
 
-/* BOTÃO */
-
-.botao-cadastro {
+.pagina-cadastro-trunkland .botao-cadastro {
     width: 100%;
     padding: 15px;
+
     background-color: #493052;
     color: #fff;
+
     border: none;
     border-radius: 8px;
+
     font-size: 17px;
     font-weight: bold;
+
     cursor: pointer;
     transition: 0.3s;
 }
 
-.botao-cadastro:hover {
+.pagina-cadastro-trunkland .botao-cadastro:hover {
     background-color: #a77b35;
     transform: translateY(-2px);
 }
 
-/* MENSAGENS */
-
-#div_msg {
+.pagina-cadastro-trunkland #div_msg {
     text-align: center;
     margin-top: 15px;
     font-weight: bold;
     line-height: 1.5;
 }
 
-.texto-login {
+.pagina-cadastro-trunkland .texto-login {
     text-align: center;
     margin-top: 25px;
 }
 
-.texto-login a {
+.pagina-cadastro-trunkland .texto-login a {
     color: #936a2e;
     font-weight: bold;
 }
 
-.voltar-inicio {
+.pagina-cadastro-trunkland .voltar-inicio {
     display: block;
     text-align: center;
     margin-top: 20px;
@@ -661,175 +748,330 @@ footer p {
     text-decoration: none;
 }
 
-/* RODAPÉ */
-
-.rodape {
+.pagina-cadastro-trunkland .rodape {
     text-align: center;
     padding: 25px;
     background-color: #21152c;
     color: #f5e5c2;
 }
 
-/* RESPONSIVIDADE */
 
-@media (max-width: 700px) {
-
-    .cabecalho {
-        justify-content: center;
-    }
-
-    .cabecalho nav {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .cadastro-card {
-        padding: 25px 20px;
-    }
-
-    .cadastro-card h1 {
-        font-size: 24px;
-    }
-}
-
-/* ===== LOGIN TRUNKLAND ===== */
+/* ========================================= */
+/* ===== LOGIN TRUNKLAND =================== */
+/* ========================================= */
 
 .pagina-login-trunkland {
     margin: 0;
+
     background: linear-gradient(
         135deg,
         #21152c,
         #493052,
         #241b35
     );
+
     color: white;
     font-family: Georgia, serif;
 }
 
-/* ÁREA PRINCIPAL */
 
-.tela-login {
+/* ===== ÁREA PRINCIPAL ===== */
+
+.pagina-login-trunkland .tela-login {
     min-height: 85vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 60px 20px;
-    box-sizing: border-box;
 }
 
-/* CARD DE LOGIN */
 
-.login-card {
+/* ===== CARD DE LOGIN ===== */
+
+.pagina-login-trunkland .login-card {
     width: 100%;
     max-width: 520px;
+
     background-color: #f8f0df;
     color: #34233b;
+
     padding: 45px;
+
     border-radius: 18px;
+
     box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+
     box-sizing: border-box;
 }
 
-.login-card h1 {
+.pagina-login-trunkland .login-card h1 {
     color: #38233f;
+
     text-align: center;
     font-size: 29px;
+
     margin-bottom: 15px;
 }
 
-.login-card .etiqueta {
+.pagina-login-trunkland .login-card .etiqueta {
     color: #a77b35;
+
     text-align: center;
     font-size: 12px;
+
     font-weight: bold;
     letter-spacing: 2px;
 }
 
-.login-card .texto-login {
+.pagina-login-trunkland .login-card .texto-login {
     text-align: center;
     color: #685a68;
+
     line-height: 1.6;
     margin-bottom: 30px;
 }
 
-/* CAMPOS */
 
-.login-card .campo {
+/* ===== CAMPOS DO LOGIN ===== */
+
+.pagina-login-trunkland .login-card .campo {
     display: flex;
     flex-direction: column;
     margin-bottom: 22px;
 }
 
-.login-card .campo label {
+.pagina-login-trunkland .login-card .campo label {
     font-weight: bold;
     margin-bottom: 8px;
     color: #49334d;
 }
 
-.login-card .campo input {
+.pagina-login-trunkland .login-card .campo input {
     padding: 14px;
+
     border: 1px solid #c7b8a0;
     border-radius: 8px;
+
     background-color: #fffdf8;
+
     font-size: 15px;
     outline: none;
-    box-sizing: border-box;
+
     width: 100%;
 }
 
-.login-card .campo input:focus {
+.pagina-login-trunkland .login-card .campo input:focus {
     border-color: #b58a42;
     box-shadow: 0 0 5px rgba(181,138,66,0.4);
 }
 
-/* BOTÃO */
 
-.botao-login {
+/* ===== BOTÃO DO LOGIN ===== */
+
+.pagina-login-trunkland .botao-login {
     width: 100%;
     padding: 15px;
+
     background-color: #493052;
     color: white;
+
     border: none;
     border-radius: 8px;
+
     font-size: 17px;
     font-weight: bold;
+
     cursor: pointer;
     transition: 0.3s;
 }
 
-.botao-login:hover {
+.pagina-login-trunkland .botao-login:hover {
     background-color: #a77b35;
     transform: translateY(-2px);
 }
 
-/* MENSAGEM */
 
-#div_msg_login {
+/* ===== MENSAGENS E CADASTRO ===== */
+
+.pagina-login-trunkland #div_msg_login {
     text-align: center;
     margin-top: 18px;
     font-weight: bold;
 }
 
-/* CADASTRO */
-
-.texto-cadastro-login {
+.pagina-login-trunkland .texto-cadastro-login {
     text-align: center;
     margin-top: 28px;
     color: #685a68;
 }
 
-.texto-cadastro-login a {
+.pagina-login-trunkland .texto-cadastro-login a {
     color: #936a2e;
     font-weight: bold;
 }
 
-@media (max-width: 700px) {
 
-    .login-card {
+/* ========================================= */
+/* ===== RESPONSIVIDADE ==================== */
+/* ========================================= */
+
+
+/* ===== TABLETS E TELAS MENORES ===== */
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    .descricao {
+        font-size: 16px;
+    }
+
+    .subtitulo {
+        letter-spacing: 3px;
+        font-size: 11px;
+    }
+
+    .historia,
+    .trunkland {
+        padding: 60px 8%;
+    }
+
+    .historia h2,
+    .trunkland h2 {
+        font-size: 27px;
+    }
+
+    /* Personagens */
+
+    .personagens {
+        padding: 70px 6%;
+    }
+
+    .personagens-introducao {
+        margin-bottom: 55px;
+    }
+
+    .personagens-introducao h2 {
+        font-size: 30px;
+    }
+
+    .lista-personagens {
+        gap: 65px;
+    }
+
+    .personagem,
+    .personagem-invertido {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+    }
+
+    .imagem-personagem {
+        width: 100%;
+        height: 320px;
+    }
+
+    .texto-personagem {
+        text-align: left;
+    }
+
+    .texto-personagem h3 {
+        font-size: 36px;
+    }
+
+    .texto-personagem p {
+        font-size: 16px;
+    }
+
+    /* Cadastro */
+
+    .pagina-cadastro-trunkland .cabecalho {
+        justify-content: center;
+    }
+
+    .pagina-cadastro-trunkland .cadastro-card {
+        padding: 25px 20px;
+    }
+
+    .pagina-cadastro-trunkland .cadastro-card h1 {
+        font-size: 24px;
+    }
+
+    /* Login */
+
+    .pagina-login-trunkland .login-card {
         padding: 28px 20px;
     }
 
-    .login-card h1 {
+    .pagina-login-trunkland .login-card h1 {
         font-size: 24px;
+    }
+}
+
+
+/* ===== CELULARES ===== */
+
+@media (max-width: 600px) {
+
+    .personagens {
+        padding: 60px 6%;
+    }
+
+    .personagens-introducao h2 {
+        font-size: 26px;
+    }
+
+    .imagem-personagem {
+        height: 260px;
+    }
+
+    .texto-personagem h3 {
+        font-size: 30px;
+    }
+
+    .texto-personagem p {
+        font-size: 15px;
+    }
+
+    .funcao-personagem {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    /* Cadastro */
+
+    .pagina-cadastro-trunkland .tela {
+        padding: 20px 12px;
+        background-attachment: scroll;
+    }
+
+    .pagina-cadastro-trunkland .cadastro-card {
+        padding: 22px 17px;
+    }
+
+    .pagina-cadastro-trunkland .cadastro-card h1 {
+        font-size: 23px;
+    }
+
+    .pagina-cadastro-trunkland .cadastro-card h2 {
+        font-size: 18px;
+    }
+
+    .pagina-cadastro-trunkland .cadastro-card button {
+        width: 100%;
     }
 }
