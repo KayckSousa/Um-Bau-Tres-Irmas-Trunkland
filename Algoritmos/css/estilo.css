@@ -1,373 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
-}
-
-:root {
-  --tamanho-header: 80px;
-  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-footer: 65px;
-}
-
-.container {
-  display: flex;
-  width: 80%;
-  margin: auto;
-}
-
-.header {
-  height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
-}
-
-.header .container {
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
-.header a {
-  text-decoration: none;
-  color: #e3b062;
-}
-
-.agora {
-  font-weight: 800;
-}
-
-.navbar {
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  color: #e3b062;
-}
-
-.titulo {
-  color: #32b9cd;
-  width: fit-content;
-  font-weight: 500;
-}
-
-.header h1 {
-  margin: 0;
-}
-
-/* BANNER */
-
-.banner {
-  height: var(--tamanho-banner);
-  color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
-}
-
-.banner .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.banner .container p {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-size: 36px;
-}
-
-.banner .container span {
-  font-weight: 800;
-}
-
-/* MISSÃO VISÃO VALORES */
-
-.social {
-  background-color: #e5e5e5;
-  display: flex;
-}
-
-.social .container {
-  justify-content: center;
-}
-
-.box img {
-  width: 170px;
-}
-
-.social .container .boxes {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 30px 0;
-}
-
-.social p {
-  text-align: center;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* FOOTER */
-
-.footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
-  display: flex;
-  font-size: 15px;
-}
-
-.footer .container {
-  justify-content: center;
-  text-align: center;
-}
-
-.footer .container .version {
-  font-size: 12px;
-}
-
-/* LOGIN */
-
-.login {
-  height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
-}
-
-.login .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.card {
-  width: 50%;
-  background-color: #e5e5e5;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  color: palevioletred;
-  flex-direction: column;
-  height: fit-content;
-  padding: 20px 0;
-}
-
-.card h2 {
-  margin: 0;
-  font-size: 30px;
-}
-
-.formulario {
-  display: flex;
-  height: 90%;
-  width: 80%;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.formulario span {
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.formulario input {
-  border: 2px solid #32b9cd;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
-}
-
-.formulario select {
-  border: 2px solid #32b9cd;
-  background-color: white;
-  color: gray;
-  height: 36px;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
-}
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 5px 0;
-}
-
-.botao {
-  cursor: pointer;
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  color: #fff;
-  background-color: #ED145B;
-  width: 120px;
-  height: 30px;
-  align-self: center;
-  margin-top: 20px;
-}
-
-.loading-div {
-  width: 50px;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
-}
-
-#div_erros_login {
-  display: none
-}
-
-/* FORMULARIO */
-
-.alerta_erro{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card_erro {
-  display: none;
-  background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #ED145B 3px solid;
-  padding: 10px;
-  margin-right: 10%;
-}
-
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.formulario .tipo_campo {
-  font-size: 20px;
-  font-weight: 600 !important;
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.btn {
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #ED145B;
-  width: 120px;
-  align-self: center;
-  margin-top: 5px;
-}
-
-.loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
-}
-
-/* SIMULADOR */
-
-.simulador {
-  color: white;
-}
-
-.simulador .container {
-  flex-direction: column;
-  overflow: scroll; 
-  height: var(--tamanho-simulador);
-}
-
-/* ALERTA */
-
-#alerta {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.mensagem-alarme {
-  background-color: white;
-  border-radius: 5px;
-  width: 300px;
-  height: 80px;
-  margin: 10px;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.mensagem-alarme h3 {
-  font-size: 14px;
-  margin: 0;
-}
-
-.mensagem-alarme .informacao {
-  width: 66%;
-}
-
-.alarme-sino {
-  width: 48px;
-  height: 48px;
-  animation-name: bell;
-  animation-duration: 4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
-  background-size: cover;
-  animation-iteration-count: infinite;
-}
-
-@keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
-}
-
-/* ========================= */
-/* Conteúdo integrado de style.css (origem: /style.css) */
-/* ========================= */
-
-/* ========================================= */
-/* ===== CONFIGURAÇÕES GERAIS ============== */
-/* ========================================= */
+/* ================================================= */
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+/* ================================================= */
 
 * {
     margin: 0;
@@ -381,23 +15,39 @@ html {
 
 body {
     font-family: Georgia, serif;
-    background-color: #cac4b7;
-    color: #302A32;
+    background-color: #100f0d;
+    color: #e8e1d4;
 }
 
-/* ========================================= */
-/* ===== CABEÇALHO ========================= */
-/* ========================================= */
+/* Cores principais:
+   Fundo: #100f0d
+   Fundo secundário: #181613
+   Dourado: #c69a45
+   Dourado claro: #e5c477
+   Texto: #e8e1d4
+*/
+
+
+/* ================================================= */
+/* ===== CABEÇALHO ===== */
+/* ================================================= */
 
 .cabecalho {
-    background-color: rgb(49, 28, 4);
-    color: rgb(0, 0, 0);
+    width: 100%;
+    min-height: 75px;
+
+    background-color: rgba(12, 11, 9, 0.97);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 15px 6%;
+    padding: 10px 4%;
+
+    border-bottom: 1px solid rgba(198, 154, 69, 0.25);
+
+    position: relative;
+    z-index: 10;
 
     flex-wrap: wrap;
     gap: 15px;
@@ -406,60 +56,90 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 40px;
+    padding: 5px 15px;
 }
 
 .logo img {
     width: 190px;
-    height: 90px;
+    height: 65px;
+
     object-fit: contain;
     display: block;
 }
 
 nav {
     display: flex;
-    gap: 25px;
     align-items: center;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
 nav a {
-    color: white;
+    color: #e8e1d4;
+
     text-decoration: none;
     font-size: 15px;
+
+    transition: 0.3s;
+
+    padding: 8px 0;
+
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #c69a45;
+
     transition: 0.3s;
 }
 
 nav a:hover {
-    color: #D6B779;
+    color: #e5c477;
 }
 
-/* ========================================= */
-/* ===== BANNER ============================ */
-/* ========================================= */
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ================================================= */
+/* ===== BANNER ===== */
+/* ================================================= */
 
 .banner {
     position: relative;
+
     width: 100%;
-    min-height: 500px;
+    min-height: 540px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     overflow: hidden;
+
+    background-color: #100f0d;
 }
 
 .imagem-banner {
     position: absolute;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
     object-position: center;
 
-    filter: brightness(45%);
+    filter: brightness(35%);
 }
 
 .conteudo-banner {
@@ -467,94 +147,1129 @@ nav a:hover {
     z-index: 2;
 
     text-align: center;
-    color: white;
+    color: #f5eee2;
 
-    max-width: 900px;
-    padding: 40px 25px;
+    max-width: 950px;
+    padding: 50px 25px;
 }
 
 .subtitulo {
-    color: #fdfdfd;
+    color: #d4a94f;
+
     letter-spacing: 5px;
     font-size: 14px;
+
     margin-bottom: 25px;
 }
 
 .banner h1 {
-    font-size: 46px;
+    font-size: 48px;
+
     margin-bottom: 25px;
-    text-shadow: 2px 2px 8px black;
+
+    color: #fffaf0;
+
+    text-shadow: 2px 2px 10px #000;
 }
 
 .descricao {
     font-size: 18px;
     line-height: 1.8;
+
     margin-bottom: 35px;
+
+    color: #e1d9ca;
 }
 
 .botao {
     display: inline-block;
 
-    background-color: #0298c5;
-    color: #000000;
+    background-color: #b58a3b;
+    color: #17130c;
 
     text-decoration: none;
 
     padding: 15px 28px;
 
     font-weight: bold;
-    border-radius: 5px;
+
+    border: 1px solid #e0bd70;
+    border-radius: 4px;
 
     transition: 0.3s;
 }
 
 .botao:hover {
-    background-color: black;
-    color: white;
+    background-color: #e0bd70;
+    color: #100f0d;
+
     transform: translateY(-3px);
 }
 
-/* ========================================= */
-/* ===== PERSONAGENS, TRUNKLAND, RODAPÉ ...  */
-/* Conteúdo restante compacto (já incluído) */
 
-/* (o restante do estilo original /style.css foi adicionado nesta seção para preservar a aparência atual do projeto) */
+/* ================================================= */
+/* ===== HISTÓRIA ===== */
+/* ================================================= */
 
-/* ========================= */
-/* Conteúdo integrado de DOCUMENTOS_DE_APOIO/exemplo_de_quiz/style.css */
-/* ========================= */
+.historia {
+    text-align: center;
 
-:root {
-    --primary-brand-color: #ED145B;
-    --secondary-brand-color: #0762C8;
-    --success: #198754;
-    --success-dark: #095c36;
-    --success-light: #9dd3ba;
-    --warning: #ffc107;
-    --warning-dark: #705400;
-    --warning-light: #fdebb3;
-    --danger: #dc3545;
-    --danger-dark: #990c19;
-    --danger-light: #f0c1c6;
-    --new-gray: #CCCCCC;
-    --new-black: #212427;
-    --new-white: #E8E8E8;
+    padding: 90px 15%;
+
+    background-color: #181613;
+
+    border-top: 1px solid rgba(198, 154, 69, 0.15);
+    border-bottom: 1px solid rgba(198, 154, 69, 0.15);
 }
 
-body {
-    color: var(--new-black);
-    background-color: var(--new-white);
-    /* font-family Barlow já foi importada no topo original; mantemos hierarquia */
+.historia h2 {
+    color: #e5c477;
+
+    font-size: 36px;
+    margin-bottom: 25px;
 }
 
-button { font-family: monospace; font-weight: bold; }
-.flex-colunar { display: flex; flex-direction: column; }
-.width-fit-content { width: fit-content; }
-.border-primary { border: 3px solid var(--primary-brand-color); }
-.border-secondary { border: 3px solid var(--secondary-brand-color); }
-.padding-8 { padding: 8px; }
-.text-bold { font-weight: bold; }
-.text-success-with-bg { color: var(--success-dark); background-color: var(--success-light); }
-.text-warning-with-bg { color: var(--warning-dark); background-color: var(--warning-light); }
-.text-danger-with-bg { color: var(--danger-dark); background-color: var(--danger-light); }
-.text-new-gray { color: var(--new-gray); }
+.historia b {
+    color: #c9c2b7;
+
+    font-size: 17px;
+    line-height: 2;
+    font-weight: normal;
+}
+
+.etiqueta {
+    color: #c69a45;
+
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+
+    font-weight: bold;
+}
+
+
+/* ================================================= */
+/* ===== PERSONAGENS ===== */
+/* ================================================= */
+
+.personagens {
+    background-color: #100f0d;
+
+    padding: 70px 5% 55px;
+
+    text-align: center;
+    color: #e8e1d4;
+
+    position: relative;
+}
+
+.personagens h2 {
+    color: #f5eee2;
+
+    font-size: 46px;
+    font-weight: normal;
+
+    margin-bottom: 55px;
+}
+
+/* Pequeno detalhe decorativo */
+
+.personagens h2::after {
+    content: "♛";
+
+    display: block;
+
+    color: #c69a45;
+
+    font-size: 20px;
+
+    width: 310px;
+    max-width: 80%;
+
+    margin: 18px auto 0;
+
+    border-bottom: 1px solid rgba(198, 154, 69, 0.4);
+
+    padding-bottom: 10px;
+}
+
+/* Lista de personagens */
+
+.lista-personagens {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+}
+
+/* Cartão individual */
+
+.personagem {
+    display: flex;
+    align-items: center;
+
+    gap: 65px;
+
+    width: 100%;
+
+    padding: 15px 25px 25px;
+
+    background-color: transparent;
+
+    border: none;
+    border-bottom: 1px solid rgba(198, 154, 69, 0.18);
+
+    text-align: left;
+}
+
+/* Alternância entre imagem e texto */
+
+.personagem:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Imagens */
+
+.personagem img {
+    width: 48%;
+    height: 245px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 17px;
+
+    border: 1px solid rgba(198, 154, 69, 0.45);
+
+    flex-shrink: 0;
+
+    transition: 0.4s;
+}
+
+/* Efeito discreto na imagem */
+
+.personagem img:hover {
+    border-color: #d9ad59;
+    filter: brightness(1.08);
+}
+
+/* Texto */
+
+.texto-personagem {
+    flex: 1;
+    padding: 15px 5px;
+}
+
+/* Nome */
+
+.personagem h3 {
+    color: #f5eee2;
+
+    font-size: 39px;
+    font-weight: normal;
+
+    margin-bottom: 12px;
+}
+
+/* Descrição */
+
+.personagem p {
+    color: #c9c2b7;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    max-width: 470px;
+}
+
+/* Detalhe dourado sob o nome */
+
+.texto-personagem h3::after {
+    content: "";
+
+    display: block;
+
+    width: 42px;
+    height: 2px;
+
+    background-color: #c69a45;
+
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+
+
+/* ================================================= */
+/* ===== TRUNKLAND ===== */
+/* ================================================= */
+
+.trunkland {
+    background-color: #181613;
+
+    color: #e8e1d4;
+
+    text-align: center;
+
+    padding: 90px 15%;
+
+    border-top: 1px solid rgba(198, 154, 69, 0.2);
+}
+
+.trunkland .etiqueta {
+    color: #d4a94f;
+}
+
+.trunkland h2 {
+    color: #f5eee2;
+
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.trunkland p:last-child {
+    color: #c9c2b7;
+
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+
+/* ================================================= */
+/* ===== RODAPÉ ===== */
+/* ================================================= */
+
+footer,
+.rodape {
+    background-color: #0b0a09;
+
+    color: #c9c2b7;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    border-top: 1px solid rgba(198, 154, 69, 0.25);
+}
+
+footer h3 {
+    color: #d4a94f;
+
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+footer p {
+    line-height: 1.8;
+}
+
+.direitos {
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    color: #918675;
+}
+
+
+/* ================================================= */
+/* ===== CADASTRO TRUNKLAND ===== */
+/* ================================================= */
+
+.pagina-cadastro-trunkland {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    background-color: #100f0d;
+
+    background-image:
+        linear-gradient(
+            rgba(10, 8, 5, 0.65),
+            rgba(10, 8, 5, 0.8)
+        ),
+        url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: Georgia, serif;
+    color: #e8e1d4;
+}
+
+.pagina-cadastro-trunkland .cabecalho {
+    background-color: #0b0a09;
+}
+
+.tela-cadastro,
+.pagina-cadastro-trunkland .tela {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    box-sizing: border-box;
+}
+
+.pagina-cadastro-trunkland .tela {
+    background-image:
+        linear-gradient(
+            rgba(10, 8, 5, 0.55),
+            rgba(10, 8, 5, 0.75)
+        );
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Cartão */
+
+.cadastro-card {
+    width: 100%;
+    max-width: 650px;
+
+    background-color: rgba(22, 19, 15, 0.96);
+
+    color: #e8e1d4;
+
+    padding: 40px;
+
+    border: 1px solid rgba(198, 154, 69, 0.5);
+    border-radius: 12px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.65);
+
+    box-sizing: border-box;
+}
+
+.cadastro-card h1 {
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+    color: #e5c477;
+}
+
+.cadastro-card h2 {
+    color: #d4a94f;
+
+    margin-top: 28px;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid rgba(198, 154, 69, 0.35);
+
+    padding-bottom: 10px;
+}
+
+.texto-cadastro {
+    text-align: center;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+
+    color: #c9c2b7;
+}
+
+/* Campos */
+
+.campo {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+.campo label {
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #e5c477;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #74603c;
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    background-color: #f2eee6;
+
+    outline: none;
+
+    color: #292116;
+
+    box-sizing: border-box;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: #d4a94f;
+
+    box-shadow: 0 0 6px rgba(198, 154, 69, 0.4);
+}
+
+.divisor {
+    height: 1px;
+
+    background-color: rgba(198, 154, 69, 0.35);
+
+    margin: 30px 0;
+}
+
+/* Botão */
+
+.botao-cadastro {
+    width: 100%;
+
+    padding: 15px;
+
+    background-color: #b58a3b;
+
+    color: #17130c;
+
+    border: 1px solid #e0bd70;
+    border-radius: 6px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.botao-cadastro:hover {
+    background-color: #e0bd70;
+
+    transform: translateY(-2px);
+}
+
+/* Mensagens */
+
+#div_msg {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.texto-login {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.texto-login a {
+    color: #d4a94f;
+    font-weight: bold;
+}
+
+.voltar-inicio {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #d4a94f;
+    text-decoration: none;
+}
+
+
+/* ================================================= */
+/* ===== LOGIN TRUNKLAND ===== */
+/* ================================================= */
+
+.pagina-login-trunkland {
+    margin: 0;
+
+    background-color: #100f0d;
+
+    color: #e8e1d4;
+
+    font-family: Georgia, serif;
+}
+
+.pagina-login-trunkland .cabecalho {
+    background-color: #0b0a09;
+}
+
+/* Área principal */
+
+.tela-login {
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+
+    box-sizing: border-box;
+}
+
+/* Cartão */
+
+.login-card {
+    width: 100%;
+    max-width: 520px;
+
+    background-color: #181613;
+
+    color: #e8e1d4;
+
+    padding: 45px;
+
+    border: 1px solid rgba(198, 154, 69, 0.5);
+    border-radius: 12px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.65);
+
+    box-sizing: border-box;
+}
+
+.login-card h1 {
+    color: #e5c477;
+
+    text-align: center;
+
+    font-size: 29px;
+
+    margin-bottom: 15px;
+}
+
+.login-card .etiqueta {
+    color: #d4a94f;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.login-card .texto-login {
+    text-align: center;
+
+    color: #c9c2b7;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+/* Campos */
+
+.login-card .campo {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 22px;
+}
+
+.login-card .campo label {
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #e5c477;
+}
+
+.login-card .campo input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #74603c;
+    border-radius: 6px;
+
+    background-color: #f2eee6;
+
+    font-size: 15px;
+
+    outline: none;
+
+    box-sizing: border-box;
+    color: #292116;
+}
+
+.login-card .campo input:focus {
+    border-color: #d4a94f;
+
+    box-shadow: 0 0 6px rgba(198, 154, 69, 0.4);
+}
+
+/* Botão */
+
+.botao-login {
+    width: 100%;
+
+    padding: 15px;
+
+    background-color: #b58a3b;
+
+    color: #17130c;
+
+    border: 1px solid #e0bd70;
+    border-radius: 6px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.botao-login:hover {
+    background-color: #e0bd70;
+
+    transform: translateY(-2px);
+}
+
+/* Mensagens */
+
+#div_msg_login {
+    text-align: center;
+
+    margin-top: 18px;
+
+    font-weight: bold;
+}
+
+.texto-cadastro-login {
+    text-align: center;
+
+    margin-top: 28px;
+
+    color: #c9c2b7;
+}
+
+.texto-cadastro-login a {
+    color: #d4a94f;
+    font-weight: bold;
+}
+
+
+/* ================================================= */
+/* ===== RESPONSIVIDADE ===== */
+/* ================================================= */
+
+@media (max-width: 900px) {
+
+    .personagem {
+        gap: 30px;
+    }
+
+    .personagem img {
+        width: 45%;
+        height: 220px;
+    }
+
+    .personagem h3 {
+        font-size: 32px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        flex-direction: column;
+        text-align: center;
+
+        padding: 12px 5%;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .banner {
+        min-height: 450px;
+    }
+
+    .banner h1 {
+        font-size: 34px;
+    }
+
+    .descricao {
+        font-size: 16px;
+    }
+
+    .subtitulo {
+        letter-spacing: 3px;
+        font-size: 11px;
+    }
+
+    .historia,
+    .trunkland {
+        padding: 60px 8%;
+    }
+
+    .historia h2,
+    .trunkland h2 {
+        font-size: 28px;
+    }
+
+    .personagens {
+        padding: 60px 5%;
+    }
+
+    .personagens h2 {
+        font-size: 35px;
+    }
+
+    .personagem {
+        gap: 25px;
+        padding: 20px 5px;
+    }
+
+    .personagem img {
+        height: 190px;
+    }
+
+    .personagem h3 {
+        font-size: 27px;
+    }
+
+    .personagem p {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    /* Cabeçalho */
+
+    .logo img {
+        width: 160px;
+        height: 60px;
+    }
+
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    /* Banner */
+
+    .banner h1 {
+        font-size: 29px;
+    }
+
+    .descricao {
+        font-size: 15px;
+    }
+
+    /* Personagens */
+
+    .personagens {
+        padding: 50px 6%;
+    }
+
+    .personagens h2 {
+        font-size: 30px;
+        margin-bottom: 35px;
+    }
+
+    .personagem,
+    .personagem:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        text-align: left;
+
+        gap: 18px;
+
+        padding: 22px 0;
+    }
+
+    .personagem img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .texto-personagem {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .personagem h3 {
+        font-size: 29px;
+    }
+
+    .personagem p {
+        font-size: 15px;
+    }
+
+    /* Cadastro */
+
+    .pagina-cadastro-trunkland .tela {
+        padding: 20px 12px;
+        background-attachment: scroll;
+    }
+
+    .cadastro-card {
+        padding: 25px 20px;
+    }
+
+    .cadastro-card h1 {
+        font-size: 24px;
+    }
+
+    .cadastro-card h2 {
+        font-size: 18px;
+    }
+
+    /* Login */
+
+    .login-card {
+        padding: 28px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 24px;
+    }
+}
+
+/* SEÇÃO DOS MISTÉRIOS DE TRUNKLAND */
+
+.misterios-trunkland {
+    position: relative;
+    width: 100%;
+    min-height: 550px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 15%;
+
+    /* Imagem de fundo com camada escura */
+    background-image:
+        linear-gradient(
+            rgba(10, 8, 5, 0.65),
+            rgba(10, 8, 5, 0.80)
+        ),
+        url("/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/viloes.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-top: 1px solid rgba(198, 154, 69, 0.3);
+    border-bottom: 1px solid rgba(198, 154, 69, 0.3);
+}
+
+/* CONTEÚDO DA SEÇÃO */
+
+.conteudo-misterios {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+
+    text-align: center;
+    color: #e8e1d4;
+}
+
+/* PEQUENO TEXTO DOURADO */
+
+.conteudo-misterios .etiqueta {
+    color: #d4a94f;
+
+    font-size: 13px;
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+}
+
+/* TÍTULO */
+
+.conteudo-misterios h2 {
+    color: #f5eee2;
+
+    font-size: 38px;
+    font-weight: normal;
+
+    margin-bottom: 30px;
+
+    text-shadow: 2px 2px 8px #000;
+}
+
+/* PARÁGRAFOS */
+
+.conteudo-misterios p {
+    color: #e1d9ca;
+
+    font-size: 17px;
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+
+    text-shadow: 1px 1px 5px #000;
+}
+
+/* FRASE FINAL */
+
+.frase-misterio {
+    display: block;
+
+    margin-top: 35px;
+
+    color: #d4a94f;
+
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .misterios-trunkland {
+        min-height: 500px;
+        padding: 60px 8%;
+    }
+
+    .conteudo-misterios h2 {
+        font-size: 29px;
+    }
+
+    .conteudo-misterios p {
+        font-size: 15px;
+    }
+
+    .frase-misterio {
+        font-size: 16px;
+    }
+
+}
+
+/* TERRA ENCANTADA DE TRUNKLAND */
+
+.terra-encantada {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 15%;
+
+    background-image:
+        linear-gradient(
+            rgba(10, 8, 5, 0.45),
+            rgba(10, 8, 5, 0.75)
+        ),
+        url("/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/seresmagicos.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* CONTEÚDO */
+
+.conteudo-encantado {
+    max-width: 850px;
+    text-align: center;
+    color: #e8e1d4;
+}
+
+/* ETIQUETA */
+
+.conteudo-encantado .etiqueta {
+    color: #d4a94f;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+}
+
+/* TÍTULO */
+
+.conteudo-encantado h2 {
+    color: #f5eee2;
+    font-size: 38px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+/* TEXTOS */
+
+.conteudo-encantado p {
+    color: #e1d9ca;
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    text-shadow: 1px 1px 5px #000;
+}
+
+/* FRASE FINAL */
+
+.frase-encantada {
+    display: block;
+    margin-top: 35px;
+    color: #d4a94f;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .terra-encantada {
+        min-height: 500px;
+        padding: 60px 8%;
+    }
+
+    .conteudo-encantado h2 {
+        font-size: 29px;
+    }
+
+    .conteudo-encantado p {
+        font-size: 15px;
+    }
+
+}
