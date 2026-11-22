@@ -90,15 +90,17 @@
                         Reino ou República
                     </label>
 
-                    <select id="ipt_reino" required>
-                        <option value="">Selecione sua nação</option>
-                        <option value="flores">Reino das Flores (RF)</option>
-                        <option value="gelo">Reino Gelado (RG)</option>
-                        <option value="risos">Reino da Diversão (RD)</option>
-                        <option value="esquecido">Reino Esquecido (RE)</option>
-                        <option value="quebrada">República Quebrada (RQ)</option>
-                        <option value="sol">Reino do Sol (RS)</option>
-                    </select>
+
+<select id="ipt_reino" required>
+    <option value="">Selecione sua nação</option>
+    <option value="1">Reino das Flores (RF)</option>
+    <option value="2">Reino Gelado (RG)</option>
+    <option value="3">Reino da Diversão (RD)</option>
+    <option value="4">Reino Esquecido (RE)</option>
+    <option value="5">República Quebrada (RQ)</option>
+    <option value="6">Reino do Sol (RS)</option>
+</select>
+
                 </div>
 
                 <div class="campo">
@@ -106,44 +108,58 @@
                         Reino Federado ou República
                     </label>
 
-                    <select id="ipt_federado" required>
-                        <option value="">Escolha seu território</option>
-                        <option value="ruzis">Reino Ruzislav(RF)</option>
-                        <option value="antiga">Terra Antiga(RF)</option>
-                        <option value="scands">Terras Scands(RF)</option>
-                        <option value="prolan">Terra dos Lagos(RF)</option>
-                        <option value="rume">Vice Reino Rumé(RF)</option>
-                        <option value="colquidas">Terras Colquidas(RF)</option>
-                        <option value="bulues">Território de Bulues(RF)</option>
-                        <option value="magerlon">Reino Magermon(RF)</option>
-                        <option value="franbator">Reino Franbator(RF)</option>
-                        <option value="ibekers">Reino Ibeker(RF)</option>
-                        <option value="itrapafor">Reino Itrapafor(RF)</option>
-                        <option value="capital">Reino Capital(RF)</option>
-                        <option value="purtolian">Ducado de Purtolian(RG)</option>
-                        <option value="ottivenia">Reino de Ottivenia(RG)</option>
-                        <option value="sul">Ducado do Sul(RG)</option>
-                        <option value="oceano">Reino do Oceano(RG)</option>
-                        <option value="mexquerzim">Reino Mexquerzim(RG)</option>
-                        <option value="pratiado">Reino Pratiado(RD)</option>
-                        <option value="grandemor">Grão Grandemor(RD)</option>
-                        <option value="conpelivia">Ducado da Conpelivia(RD)</option>
-                        <option value="chisgard">Reino Chisgard(RD)</option>
-                        <option value="afregarbat">Reino de Afregarbat(RE)</option>
-                        <option value="obscure">Floresta Obscure Kriedtch(RQ)</option>
-                        <option value="psisvania">Reino da Psisvânia(RQ)</option>
-                        <option value="numitania">República Numitania(RQ)</option>
-                        <option value="soloriental">República Soloriental(RQ)</option>
-                        <option value="nejtodord">Reino Nejtodord(RQ)</option>
-                        <option value="qagard">República Qagard(RQ)</option>
-                        <option value="esteptans">República Esteptans(RQ)</option>
-                        <option value="javasia">República da Javasia(RQ)</option>
-                        <option value="josol">Reino Josol(RS)</option>
-                        <option value="japtain">Reino Japtain(RS)</option>
-                        <option value="indrialom">Reino Indrialom(RS)</option>
-                        <option value="mandoghuan">Reino Mandoghuan(RS)</option>
-                        <option value="filbior">Reino Filbior(RS)</option>
-                    </select>
+                   
+<select id="ipt_federado" required>
+    <option value="">Escolha seu território</option>
+
+    <!-- TERRITÓRIOS DO REINO DAS FLORES -->
+    <option value="1" data-reino="1">Reino Ruzislav (RF)</option>
+    <option value="2" data-reino="1">Terra Antiga (RF)</option>
+    <option value="3" data-reino="1">Terras Scands (RF)</option>
+    <option value="4" data-reino="1">Terra dos Lagos (RF)</option>
+    <option value="5" data-reino="1">Vice Reino Rumé (RF)</option>
+    <option value="6" data-reino="1">Terras Colquidas (RF)</option>
+    <option value="7" data-reino="1">Território de Bulues (RF)</option>
+    <option value="8" data-reino="1">Reino Magermon (RF)</option>
+    <option value="9" data-reino="1">Reino Franbator (RF)</option>
+    <option value="10" data-reino="1">Reino Ibeker (RF)</option>
+    <option value="11" data-reino="1">Reino Itrapafor (RF)</option>
+    <option value="12" data-reino="1">Reino Capital (RF)</option>
+
+    <!-- TERRITÓRIOS DO REINO GELADO -->
+    <option value="13" data-reino="2">Ducado de Purtolian (RG)</option>
+    <option value="14" data-reino="2">Reino de Ottivenia (RG)</option>
+    <option value="15" data-reino="2">Ducado do Sul (RG)</option>
+    <option value="16" data-reino="2">Reino do Oceano (RG)</option>
+    <option value="17" data-reino="2">Reino Mexquerzim (RG)</option>
+
+    <!-- TERRITÓRIOS DO REINO DA DIVERSÃO -->
+    <option value="18" data-reino="3">Reino Pratiado (RD)</option>
+    <option value="19" data-reino="3">Grão Grandemor (RD)</option>
+    <option value="20" data-reino="3">Ducado da Conpelivia (RD)</option>
+    <option value="21" data-reino="3">Reino Chisgard (RD)</option>
+
+    <!-- TERRITÓRIOS DO REINO ESQUECIDO -->
+    <option value="22" data-reino="4">Reino de Afregarbat (RE)</option>
+
+    <!-- TERRITÓRIOS DA REPÚBLICA QUEBRADA -->
+    <option value="23" data-reino="5">Floresta Obscure Kriedtch (RQ)</option>
+    <option value="24" data-reino="5">Reino da Psisvânia (RQ)</option>
+    <option value="25" data-reino="5">República Numitania (RQ)</option>
+    <option value="26" data-reino="5">República Soloriental (RQ)</option>
+    <option value="27" data-reino="5">Reino Nejtodord (RQ)</option>
+    <option value="28" data-reino="5">República Qagard (RQ)</option>
+    <option value="29" data-reino="5">República Esteptans (RQ)</option>
+    <option value="30" data-reino="5">República da Javasia (RQ)</option>
+
+    <!-- TERRITÓRIOS DO REINO DO SOL -->
+    <option value="31" data-reino="6">Reino Josol (RS)</option>
+    <option value="32" data-reino="6">Reino Japtain (RS)</option>
+    <option value="33" data-reino="6">Reino Indrialom (RS)</option>
+    <option value="34" data-reino="6">Reino Mandoghuan (RS)</option>
+    <option value="35" data-reino="6">Reino Filbior (RS)</option>
+</select>
+
                 </div>
 
                 <div class="campo">
@@ -151,21 +167,22 @@
                         Escolha seu clã
                     </label>
 
-                    <select id="ipt_cla" required>
-                        <option value="">Selecione seu clã</option>
-                        <option value="ortgorods">Ortgorods</option>
-                        <option value="primoders">Primoders</option>
-                        <option value="copquerkirs">Copquerkirs</option>
-                        <option value="provelenians">Provelenians</option>
-                        <option value="angardons">Angardons</option>
-                        <option value="batars">Batars</option>
-                        <option value="pentzeradins">Pentzeradins</option>
-                        <option value="lutivins">Lutivins</option>
-                        <option value="preskalians">Preskalians</option>
-                        <option value="metdalons">Metdalons</option>
-                        <option value="catepoleris">Catepoleris</option>
-                        <option value="isthelins">Isthelins</option>
-                    </select>
+<select id="ipt_cla" required>
+    <option value="">Selecione seu clã</option>
+    <option value="1">Ortgorods</option>
+    <option value="2">Primoders</option>
+    <option value="3">Copquerkirs</option>
+    <option value="4">Provelenians</option>
+    <option value="5">Angardons</option>
+    <option value="6">Batars</option>
+    <option value="7">Pentzeradins</option>
+    <option value="8">Lutivins</option>
+    <option value="9">Preskalians</option>
+    <option value="10">Metdalons</option>
+    <option value="11">Catepoleris</option>
+    <option value="12">Isthelins</option>
+</select>
+
                 </div>
 
                 <button type="submit" class="botao-cadastro">

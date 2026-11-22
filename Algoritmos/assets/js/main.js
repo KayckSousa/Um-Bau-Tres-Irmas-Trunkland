@@ -3,60 +3,132 @@
 
 (function () {
 
+    // =====================================================
+    // FUNÇÃO ORIGINAL: IDENTIFICAR A PÁGINA ATIVA NO MENU
+    // =====================================================
+
     function setActiveNav() {
+
         const links = document.querySelectorAll('nav a, .nav-link');
         const currentPath = location.pathname.split('/').pop() || 'index.html';
         const currentHash = location.hash || '';
 
         links.forEach(a => {
+
             const href = a.getAttribute('href');
             if (!href) return;
 
             let active = false;
 
             if (href.startsWith('#')) {
+
                 active = href === currentHash;
+
             } else {
+
                 const [hrefPath, hrefHash] = href.split('#');
                 const hrefFile = hrefPath.split('/').pop() || 'index.html';
 
                 // comparar arquivos (ex: cadastro.html) ou index.html com hashes
                 if (hrefFile === currentPath || (hrefFile === 'index.html' && (currentPath === '' || currentPath === 'index.html'))) {
+
                     if (!hrefHash) active = !currentHash || currentHash === '';
                     else active = ('#' + hrefHash) === currentHash;
+
                 }
+
             }
 
             if (active) a.classList.add('ativo');
             else a.classList.remove('ativo');
+
         });
+
     }
 
+
+    // =====================================================
+    // FUNÇÃO ORIGINAL: MOSTRAR ERRO NO CAMPO
+    // =====================================================
+
     function showFieldError(el, msg) {
+
         el.classList.add('invalid');
 
         let hint = el.nextElementSibling;
 
         if (!hint || !hint.classList.contains('field-error')) {
+
             hint = document.createElement('span');
             hint.className = 'field-error';
             hint.style.color = 'var(--error-color, #c00)';
             el.insertAdjacentElement('afterend', hint);
+
         }
 
         hint.textContent = msg;
+
     }
 
+
+    // =====================================================
+    // FUNÇÃO ORIGINAL: LIMPAR ERRO DO CAMPO
+    // =====================================================
+
     function clearFieldError(el) {
+
         el.classList.remove('invalid');
 
         const hint = el.nextElementSibling;
 
         if (hint && hint.classList.contains('field-error')) hint.remove();
+
     }
 
+
     // =====================================================
-    // NOVA FUNÇÃO: ENVIO DOS DADOS DO CADASTRO AO SERVIDOR
+    // NOVA FUNÇÃO: FILTRAR TERRITÓRIOS PELO REINO
+    // =====================================================
+
+    function filtrarTerritorios() {
+
+        const reino = document.getElementById('ipt_reino');
+        const territorio = document.getElementById('ipt_federado');
+
+        // Se a página não possuir esses campos, não executa
+        if (!reino || !territorio) return;
+
+        const idReinoSelecionado = reino.value;
+
+        // Percorre as opções de território
+        Array.from(territorio.options).forEach(function (opcao, indice) {
+
+            // Mantém a primeira opção como instrução
+            if (indice === 0) {
+
+                opcao.hidden = false;
+                opcao.disabled = false;
+                return;
+
+            }
+
+            // Verifica se o território pertence ao reino selecionado
+            const pertenceAoReino =
+                opcao.dataset.reino === idReinoSelecionado;
+
+            opcao.hidden = !pertenceAoReino;
+            opcao.disabled = !pertenceAoReino;
+
+        });
+
+        // Limpa o território selecionado anteriormente
+        territorio.value = '';
+
+    }
+
+
+    // =====================================================
+    // NOVA FUNÇÃO: ENVIAR OS DADOS DO CADASTRO AO SERVIDOR
     // =====================================================
 
     function enviarCadastro() {
@@ -72,7 +144,12 @@
 
         const msgBox = document.getElementById('div_msg');
 
+        // Evita mensagens antigas durante uma nova tentativa
+        msgBox.textContent = 'Enviando cadastro...';
+        msgBox.style.color = 'inherit';
+
         fetch('/usuarios/cadastrar', {
+
             method: 'POST',
 
             headers: {
@@ -91,15 +168,20 @@
                 idClaServer: idCla
 
             })
+
         })
 
         .then(function (resposta) {
+
             return resposta.json().then(function (dados) {
+
                 return {
                     ok: resposta.ok,
                     dados: dados
                 };
+
             });
+
         })
 
         .then(function (resultado) {
@@ -111,9 +193,15 @@
 
                 document.getElementById('formCadastro').reset();
 
+                // Atualiza a lista de territórios após limpar o formulário
+                filtrarTerritorios();
+
             } else {
 
-                msgBox.textContent = resultado.dados.mensagem || 'Não foi possível realizar o cadastro.';
+                msgBox.textContent =
+                    resultado.dados.mensagem ||
+                    'Não foi possível realizar o cadastro.';
+
                 msgBox.style.color = 'red';
 
             }
@@ -128,10 +216,12 @@
             msgBox.style.color = 'red';
 
         });
+
     }
 
+
     // =====================================================
-    // VALIDAÇÃO DOS FORMULÁRIOS
+    // FUNÇÃO ORIGINAL: VALIDAÇÃO DOS FORMULÁRIOS
     // =====================================================
 
     function attachFormValidation() {
@@ -157,7 +247,9 @@
 
                 });
 
-                // verificação específica para cadastro de senhas
+
+                // VERIFICAÇÃO ORIGINAL: CONFIRMAÇÃO DAS SENHAS
+
                 if (form.id === 'formCadastro') {
 
                     const s1 = document.getElementById('ipt_senha');
@@ -170,7 +262,10 @@
 
                             valid = false;
 
-                            if (msgBox) msgBox.textContent = 'As senhas não coincidem.';
+                            if (msgBox) {
+                                msgBox.textContent = 'As senhas não coincidem.';
+                                msgBox.style.color = 'red';
+                            }
 
                         } else if (msgBox) {
 
@@ -179,27 +274,37 @@
                         }
 
                     }
+
                 }
 
-                // NOVA PARTE:
-                // Impede o envio padrão e envia os dados ao servidor.
+
+                // NOVA PARTE: ENVIO DO CADASTRO AO BACKEND
+
                 if (!valid) {
 
+                    // Impede o envio se houver campos inválidos
                     e.preventDefault();
 
                 } else if (form.id === 'formCadastro') {
 
+                    // Impede o envio tradicional do formulário
                     e.preventDefault();
+
+                    // Envia os dados para a rota /usuarios/cadastrar
                     enviarCadastro();
 
                 }
 
+
                 /*
-                CÓDIGO ORIGINAL:
+                CÓDIGO ORIGINAL PRESERVADO:
+
                 if (!valid) e.preventDefault();
 
-                Mantido como comentário para preservar
-                a lógica anterior do formulário.
+                Essa era a lógica anterior de validação.
+                Foi substituída pela condição acima para permitir
+                que o cadastro válido seja enviado ao servidor.
+
                 */
 
             });
@@ -208,10 +313,28 @@
 
     }
 
+
+    // =====================================================
+    // INICIALIZAÇÃO DAS FUNÇÕES
+    // =====================================================
+
     document.addEventListener('DOMContentLoaded', function () {
 
         setActiveNav();
+
         attachFormValidation();
+
+        // NOVO: prepara a lista de territórios
+        filtrarTerritorios();
+
+        // NOVO: filtra novamente quando o reino for alterado
+        const reino = document.getElementById('ipt_reino');
+
+        if (reino) {
+
+            reino.addEventListener('change', filtrarTerritorios);
+
+        }
 
     });
 

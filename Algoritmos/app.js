@@ -12,6 +12,8 @@ var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 require("dotenv").config({ path: caminho_env });
 
 process.env.AMBIENTE_PROCESSO = ambiente_processo;
+
+
 // ======================================================
 // IMPORTAÇÃO DAS BIBLIOTECAS
 // ======================================================
@@ -48,10 +50,10 @@ app.use(express.static(path.join(__dirname, "public")));
 // ======================================================
 
 // Rota principal do WEB DATA VIZ
-var indexRouter = require("./src/routes/index");
+var indexRouter = require("./routes/index");
 
 // Rota de usuários do Trunkland
-var usuarioRouter = require("./src/routes/usuarios");
+var usuarioRouter = require("./routes/usuarios");
 
 
 // ======================================================
@@ -82,13 +84,17 @@ app.use("/usuarios", usuarioRouter);
 // app.use("/empresas", empresasRouter);
 // app.use("/especies", especiesRouter);
 
+
+// ======================================================
+// INICIALIZAÇÃO DO SERVIDOR
+// ======================================================
+
 app.listen(PORTA_APP, function () {
 
     console.log(`
     ==========================================
                   TRUNKLAND
     ==========================================
-    
 
     Servidor iniciado com sucesso!
 
