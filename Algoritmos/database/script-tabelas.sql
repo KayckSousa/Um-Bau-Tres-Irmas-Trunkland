@@ -6,53 +6,121 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+CREATE DATABASE Trunkland;
 
-USE aquatech;
+USE Trunkland;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+CREATE TABLE reino (
+    id_reino INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    tipo VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE territorio (
+    id_territorio INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT
+);
+
+CREATE TABLE cla (
+    id_cla INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT
 );
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    nacionalidade VARCHAR(80),
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    id_reino INT NOT NULL,
+    id_territorio INT NOT NULL,
+    id_cla INT NOT NULL,
+
+    FOREIGN KEY (id_reino)
+        REFERENCES reino(id_reino),
+
+    FOREIGN KEY (id_territorio)
+        REFERENCES territorio(id_territorio),
+
+    FOREIGN KEY (id_cla)
+        REFERENCES cla(id_cla)
+);CREATE DATABASE Trunkland;
+
+USE Trunkland;
+
+CREATE TABLE reino (
+    id_reino INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    tipo VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE territorio (
+    id_territorio INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    id_reino INT NOT NULL,
+    FOREIGN KEY (id_reino)
+        REFERENCES reino(id_reino)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE cla (
+    id_cla INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+CREATE TABLE usuario (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    nacionalidade VARCHAR(80),
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+    id_reino INT NOT NULL,
+    id_territorio INT NOT NULL,
+    id_cla INT NOT NULL,
+
+    FOREIGN KEY (id_reino)
+        REFERENCES reino(id_reino),
+
+    FOREIGN KEY (id_territorio)
+        REFERENCES territorio(id_territorio),
+
+    FOREIGN KEY (id_cla)
+        REFERENCES cla(id_cla)
 );
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+USE Trunkland;
+
+INSERT INTO reino (nome, descricao, tipo) VALUES
+('Reino das Flores', 'Reino das Flores (RF)', 'Reino'),
+('Reino Gelado', 'Reino Gelado (RG)', 'Reino'),
+('Reino da Diversão', 'Reino da Diversão (RD)', 'Reino'),
+('Reino Esquecido', 'Reino Esquecido (RE)', 'Reino'),
+('República Quebrada', 'República Quebrada (RQ)', 'República'),
+('Reino do Sol', 'Reino do Sol (RS)', 'Reino');
+
+INSERT INTO cla (nome) VALUES
+('Ortgorods'),
+('Primoders'),
+('Copquerkirs'),
+('Provelenians'),
+('Angardons'),
+('Batars'),
+('Pentzeradins'),
+('Lutivins'),
+('Preskalians'),
+('Metdalons'),
+('Catepoleris'),
+('Isthelins');
+
+SELECT * FROM reino;
+
+DESCRIBE territorio;
