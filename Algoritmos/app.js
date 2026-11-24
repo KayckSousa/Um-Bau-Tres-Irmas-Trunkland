@@ -41,8 +41,9 @@ app.use(express.urlencoded({ extended: false }));
 // Permite comunicação entre diferentes origens
 app.use(cors());
 
-// Disponibiliza HTML, CSS, JavaScript e imagens da pasta public
-app.use(express.static(path.join(__dirname, "public")));
+// Disponibiliza HTML, CSS, JavaScript e imagens
+// Os arquivos do Trunkland estão diretamente na raiz do projeto
+app.use(express.static(__dirname));
 
 
 // ======================================================

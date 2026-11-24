@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -47,20 +48,8 @@
                 os mistérios deste mundo fantástico.
             </p>
 
+            <!-- FORMULÁRIO DE LOGIN -->
             <form id="formLogin">
-
-                <div class="campo">
-                    <label for="ipt_nome">
-                        Nome de usuário
-                    </label>
-
-                    <input
-                        type="text"
-                        id="ipt_nome"
-                        name="nome"
-                        placeholder="Digite seu nome de usuário"
-                        required>
-                </div>
 
                 <div class="campo">
                     <label for="ipt_email">
@@ -92,7 +81,7 @@
                     Entrar em Trunkland
                 </button>
 
-                <div id="div_msg_login"></div>
+                <div id="div_msg_login" role="status" aria-live="polite"></div>
 
             </form>
 
@@ -118,8 +107,8 @@
 
     </footer>
 
-    <script src="login.js"></script>
+    <!-- ARQUIVO JAVASCRIPT -->
+    <script src="assets/js/main.js" defer></script>
 
-    
 </body>
 </html>

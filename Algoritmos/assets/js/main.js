@@ -16,6 +16,7 @@
         links.forEach(a => {
 
             const href = a.getAttribute('href');
+
             if (!href) return;
 
             let active = false;
@@ -221,6 +222,97 @@
 
 
     // =====================================================
+    // NOVA FUNÇÃO: ENVIAR OS DADOS DE LOGIN AO SERVIDOR
+    // =====================================================
+
+    function enviarLogin() {
+
+        const email = document.getElementById('ipt_email').value;
+        const senha = document.getElementById('ipt_senha').value;
+        const msgBox = document.getElementById('div_msg_login');
+
+        msgBox.textContent = 'Verificando seus dados...';
+        msgBox.style.color = 'inherit';
+
+        fetch('/usuarios/autenticar', {
+
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+
+        })
+
+        .then(function (resposta) {
+
+            return resposta.json().then(function (dados) {
+
+                return {
+                    ok: resposta.ok,
+                    dados: dados
+                };
+
+            });
+
+        })
+
+        .then(function (resultado) {
+
+            if (resultado.ok) {
+
+                msgBox.textContent =
+                    'Bem-vindo(a), ' + resultado.dados.nome +
+                    '! Login realizado com sucesso.';
+
+                msgBox.style.color = 'green';
+
+                // Limpa somente a senha após autenticação bem-sucedida
+                document.getElementById('ipt_senha').value = '';
+
+                // Guarda os dados básicos da sessão no navegador.
+                // Não armazena a senha nem o hash.
+                sessionStorage.setItem('usuarioLogado', JSON.stringify({
+
+                    id_usuario: resultado.dados.id_usuario,
+                    nome: resultado.dados.nome,
+                    email: resultado.dados.email,
+                    id_reino: resultado.dados.id_reino,
+                    id_territorio: resultado.dados.id_territorio,
+                    id_cla: resultado.dados.id_cla
+
+                }));
+
+            } else {
+
+                msgBox.textContent =
+                    resultado.dados.mensagem ||
+                    'E-mail ou senha inválidos.';
+
+                msgBox.style.color = 'red';
+
+            }
+
+        })
+
+        .catch(function (erro) {
+
+            console.log('Erro ao realizar login:', erro);
+
+            msgBox.textContent = 'Não foi possível comunicar com o servidor.';
+            msgBox.style.color = 'red';
+
+        });
+
+    }
+
+
+    // =====================================================
     // FUNÇÃO ORIGINAL: VALIDAÇÃO DOS FORMULÁRIOS
     // =====================================================
 
@@ -302,9 +394,9 @@
                 if (!valid) e.preventDefault();
 
                 Essa era a lógica anterior de validação.
+
                 Foi substituída pela condição acima para permitir
                 que o cadastro válido seja enviado ao servidor.
-
                 */
 
             });
@@ -336,6 +428,42 @@
 
         }
 
+
+        // =====================================================
+        // NOVO: PREPARA O FORMULÁRIO DE LOGIN
+        // =====================================================
+
+        const formLogin = document.getElementById('formLogin');
+
+        if (formLogin) {
+
+            formLogin.addEventListener('submit', function (e) {
+
+                // Impede o envio tradicional do formulário
+                e.preventDefault();
+
+                const email = document.getElementById('ipt_email');
+                const senha = document.getElementById('ipt_senha');
+                const msgBox = document.getElementById('div_msg_login');
+
+                // Verifica se os campos foram preenchidos
+                if (!email.value.trim() || !senha.value) {
+
+                    msgBox.textContent = 'Informe seu e-mail e sua senha.';
+                    msgBox.style.color = 'red';
+
+                    return;
+
+                }
+
+                // Envia os dados para a rota /usuarios/autenticar
+                enviarLogin();
+
+            });
+
+        }
+
     });
+
 
 })();
