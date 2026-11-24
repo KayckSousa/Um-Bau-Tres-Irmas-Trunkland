@@ -1,7 +1,8 @@
 var alertas = [];
 
 function obterdados(idAquario) {
-    fetch(`/medidas/tempo-real/${idAquario}`)
+    const API_BASE = (location.protocol === 'file:') ? 'http://localhost:3000' : '';
+    fetch(API_BASE + `/medidas/tempo-real/${idAquario}`)
         .then(resposta => {
             if (resposta.status == 200) {
                 resposta.json().then(resposta => {

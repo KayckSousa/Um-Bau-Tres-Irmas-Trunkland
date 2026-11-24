@@ -425,3 +425,212 @@ canvas {
   margin-bottom: 100px;
   cursor: pointer;
 }
+
+/* ======================================================
+   DASHBOARD TRUNKLAND
+   Interface adaptada a partir do projeto AquaTech.
+   O CSS original foi preservado como referência.
+====================================================== */
+
+/* Configuração geral */
+
+.dashboard-trunkland {
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f4eee5;
+}
+
+/* Estrutura principal */
+
+.dashboard-trunkland .janela {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Menu lateral */
+
+.dashboard-trunkland .header-left {
+    background-color: #38291f;
+    border-right: 3px solid #b58b52;
+}
+
+.dashboard-trunkland .header-left h1 {
+    color: #e4c18a;
+}
+
+.dashboard-trunkland .header-left a {
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard-trunkland .hello h3 {
+    color: #e4c18a;
+}
+
+/* Botões do menu */
+
+.dashboard-trunkland .btn-nav {
+    background-color: #8a603b;
+    border-radius: 8px;
+    width: 60%;
+    padding: 12px;
+}
+
+.dashboard-trunkland .btn-nav-white {
+    background-color: #f4eee5;
+    border: 2px solid #b58b52;
+    border-radius: 8px;
+    width: 60%;
+    padding: 12px;
+}
+
+.dashboard-trunkland .btn-nav-white h3 {
+    color: #5b402b;
+}
+
+.dashboard-trunkland .btn-logout {
+    background-color: #a34d3c;
+    border-radius: 8px;
+    width: 40%;
+    padding: 12px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Área principal */
+
+.dashboard-trunkland .dash {
+    width: 80%;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 20%;
+    padding: 35px;
+    box-sizing: border-box;
+    background-color: #f4eee5;
+    overflow: auto;
+}
+
+/* Título */
+
+.dashboard-trunkland .dashboard-titulo h1 {
+    color: #493321;
+    margin-bottom: 8px;
+}
+
+.dashboard-trunkland .dashboard-titulo p {
+    color: #766452;
+    font-size: 17px;
+}
+
+/* Cards de resumo */
+
+.dashboard-trunkland .resumo-dashboard {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.dashboard-trunkland .card-dashboard {
+    flex: 1;
+    min-width: 180px;
+    padding: 25px;
+    background-color: white;
+    border-left: 5px solid #b58b52;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-trunkland .card-dashboard h3 {
+    color: #766452;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.dashboard-trunkland .card-dashboard p {
+    color: #493321;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 10px 0 0;
+}
+
+/* Painel Minha Jornada */
+
+.dashboard-trunkland .perfil-dashboard {
+    margin-top: 35px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-trunkland .perfil-dashboard h2 {
+    color: #493321;
+    margin-top: 0;
+}
+
+.dashboard-trunkland .perfil-dashboard > p {
+    color: #766452;
+}
+
+.dashboard-trunkland .informacoes-usuario {
+    margin-top: 25px;
+}
+
+.dashboard-trunkland .informacoes-usuario p {
+    padding: 12px;
+    margin: 0;
+    border-bottom: 1px solid #e8dfd3;
+    color: #493321;
+}
+
+.dashboard-trunkland .informacoes-usuario strong {
+    display: inline-block;
+    width: 110px;
+}
+
+/* Rodapé */
+
+.dashboard-trunkland .rodape {
+    padding: 18px;
+    text-align: center;
+    background-color: #38291f;
+    color: #e4c18a;
+    font-size: 14px;
+}
+
+/* Ajuste para telas menores */
+
+@media screen and (max-width: 768px) {
+
+    .dashboard-trunkland .header-left {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        position: relative;
+        padding: 20px 0;
+        border-right: none;
+        border-bottom: 3px solid #b58b52;
+    }
+
+    .dashboard-trunkland .janela {
+        flex-direction: column;
+    }
+
+    .dashboard-trunkland .dash {
+        width: 100%;
+        left: 0;
+        padding: 20px;
+    }
+
+    .dashboard-trunkland .resumo-dashboard {
+        flex-direction: column;
+    }
+
+    .dashboard-trunkland .btn-logout {
+        margin-bottom: 0;
+    }
+}

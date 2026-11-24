@@ -3,6 +3,11 @@
 
 (function () {
 
+    // API_BASE: se a página for aberta via file:// (abrindo o HTML diretamente),
+    // aponta para o servidor local padrão (porta 3000). Quando a página for
+    // servida por HTTP/HTTPS, mantém caminhos relativos (mesma origem).
+    const API_BASE = (location.protocol === 'file:') ? 'http://localhost:3000' : '';
+
     // =====================================================
     // FUNÇÃO ORIGINAL: IDENTIFICAR A PÁGINA ATIVA NO MENU
     // =====================================================
@@ -149,7 +154,7 @@
         msgBox.textContent = 'Enviando cadastro...';
         msgBox.style.color = 'inherit';
 
-        fetch('/usuarios/cadastrar', {
+        fetch(API_BASE + '/usuarios/cadastrar', {
 
             method: 'POST',
 
@@ -234,7 +239,7 @@
         msgBox.textContent = 'Verificando seus dados...';
         msgBox.style.color = 'inherit';
 
-        fetch('/usuarios/autenticar', {
+        fetch(API_BASE + '/usuarios/autenticar', {
 
             method: 'POST',
 
