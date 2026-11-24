@@ -30,7 +30,8 @@ var app = express();
 // ======================================================
 
 var PORTA_APP = process.env.APP_PORT || 3000;
-var HOST_APP = process.env.APP_HOST || "localhost";
+// por padrão expõe em todas as interfaces quando não informado
+var HOST_APP = process.env.APP_HOST || "0.0.0.0";
 
 // Permite receber informações em JSON
 app.use(express.json());
@@ -44,6 +45,12 @@ app.use(cors());
 // Disponibiliza HTML, CSS, JavaScript e imagens
 // Os arquivos do Trunkland estão diretamente na raiz do projeto
 app.use(express.static(__dirname));
+
+// registro simples de requisições para auxiliar no diagnóstico
+app.use(function (req, res, next) {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
+    next();
+});
 
 
 // ======================================================
@@ -90,7 +97,7 @@ app.use("/usuarios", usuarioRouter);
 // INICIALIZAÇÃO DO SERVIDOR
 // ======================================================
 
-app.listen(PORTA_APP, function () {
+app.listen(PORTA_APP, HOST_APP, function () {
 
     console.log(`
     ==========================================

@@ -6,7 +6,8 @@
     // API_BASE: se a página for aberta via file:// (abrindo o HTML diretamente),
     // aponta para o servidor local padrão (porta 3000). Quando a página for
     // servida por HTTP/HTTPS, mantém caminhos relativos (mesma origem).
-    const API_BASE = (location.protocol === 'file:') ? 'http://localhost:3000' : '';
+    // fallback para quando abrir os arquivos via file:// — porta padrão do projeto em desenvolvimento
+    const API_BASE = (location.protocol === 'file:') ? 'http://localhost:3333' : '';
 
     // =====================================================
     // FUNÇÃO ORIGINAL: IDENTIFICAR A PÁGINA ATIVA NO MENU

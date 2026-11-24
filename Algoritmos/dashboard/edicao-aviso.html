@@ -104,7 +104,7 @@
     }
 
     function editar() {
-        const API_BASE = (location.protocol === 'file:') ? 'http://localhost:3000' : '';
+        const API_BASE = (location.protocol === 'file:') ? 'http://localhost:3333' : '';
         fetch(API_BASE + `/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
             method: "PUT",
             headers: {
