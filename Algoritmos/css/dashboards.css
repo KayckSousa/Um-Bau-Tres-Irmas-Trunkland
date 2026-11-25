@@ -434,25 +434,55 @@ canvas {
 
 /* Configuração geral */
 
+
+/* ======================================================
+   DASHBOARD TRUNKLAND
+   Interface adaptada a partir do projeto AquaTech.
+   O CSS original do AquaTech foi preservado acima.
+====================================================== */
+
+
+/* CONFIGURAÇÃO GERAL */
+
 .dashboard-trunkland {
     margin: 0;
     padding: 0;
     font-family: 'Barlow', 'Segoe UI', Tahoma, sans-serif;
     background-color: #f4eee5;
+    color: #493321;
 }
 
-/* Estrutura principal */
+
+/* ESTRUTURA PRINCIPAL */
 
 .dashboard-trunkland .janela {
     display: flex;
+    width: 100%;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
-/* Menu lateral */
+
+/* MENU LATERAL */
 
 .dashboard-trunkland .header-left {
+    position: sticky;
+    top: 0;
+    left: auto;
+    z-index: 10;
+
+    width: 20%;
+    min-width: 200px;
+    height: calc(100vh - 90px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
     background-color: #38291f;
     border-right: 3px solid #b58b52;
+    box-sizing: border-box;
 }
 
 .dashboard-trunkland .header-left h1 {
@@ -464,56 +494,94 @@ canvas {
     text-decoration: none;
 }
 
-.dashboard-trunkland .hello h3 {
-    color: #e4c18a;
+
+/* SAUDAÇÃO */
+
+.dashboard-trunkland .hello {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
-/* Botões do menu */
+.dashboard-trunkland .hello h3 {
+    color: #e4c18a;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.dashboard-trunkland .hello h3 span {
+    font-weight: 800;
+}
+
+
+/* BOTÕES DO MENU */
 
 .dashboard-trunkland .btn-nav {
-    background-color: #8a603b;
-    border-radius: 8px;
     width: 60%;
     padding: 12px;
+    background-color: #8a603b;
+    border-radius: 8px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .dashboard-trunkland .btn-nav-white {
+    width: 60%;
+    padding: 12px;
     background-color: #f4eee5;
     border: 2px solid #b58b52;
     border-radius: 8px;
-    width: 60%;
-    padding: 12px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .dashboard-trunkland .btn-nav-white h3 {
     color: #5b402b;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-trunkland .btn-nav h3,
+.dashboard-trunkland .btn-logout h3 {
+    margin: 0;
+    padding: 0;
 }
 
 .dashboard-trunkland .btn-logout {
-    background-color: #a34d3c;
-    border-radius: 8px;
-    width: 40%;
+    width: 45%;
     padding: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    background-color: #a34d3c;
+    color: white;
+    border-radius: 8px;
     text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
-/* Área principal */
+
+/* CONTEÚDO PRINCIPAL */
 
 .dashboard-trunkland .dash {
+    position: relative;
+    top: auto;
+    left: auto;
+
     width: 80%;
+    min-width: 0;
     min-height: 100vh;
     height: auto;
-    position: relative;
-    top: 0;
-    left: 20%;
+
     padding: 35px;
-    box-sizing: border-box;
+
     background-color: #f4eee5;
-    overflow: auto;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-/* Título */
+
+/* TÍTULO DA DASHBOARD */
 
 .dashboard-trunkland .dashboard-titulo h1 {
     color: #493321;
@@ -523,9 +591,11 @@ canvas {
 .dashboard-trunkland .dashboard-titulo p {
     color: #766452;
     font-size: 17px;
+    line-height: 1.5;
 }
 
-/* Cards de resumo */
+
+/* CARDS DE RESUMO */
 
 .dashboard-trunkland .resumo-dashboard {
     display: flex;
@@ -538,10 +608,13 @@ canvas {
     flex: 1;
     min-width: 180px;
     padding: 25px;
+
     background-color: white;
     border-left: 5px solid #b58b52;
     border-radius: 10px;
+
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
 }
 
 .dashboard-trunkland .card-dashboard h3 {
@@ -557,13 +630,77 @@ canvas {
     margin: 10px 0 0;
 }
 
-/* Painel Minha Jornada */
+
+/* ======================================================
+   GRÁFICOS ESTATÍSTICOS
+====================================================== */
+
+
+/* TÍTULO DOS GRÁFICOS */
+
+.dashboard-trunkland .graficos-dashboard {
+    margin-top: 40px;
+}
+
+.dashboard-trunkland .titulo-graficos {
+    margin-bottom: 25px;
+}
+
+.dashboard-trunkland .titulo-graficos h2 {
+    color: #493321;
+    margin-bottom: 8px;
+}
+
+.dashboard-trunkland .titulo-graficos p {
+    color: #766452;
+    font-size: 16px;
+}
+
+
+/* CARDS DOS GRÁFICOS */
+
+.dashboard-trunkland .card-grafico {
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 25px;
+
+    background-color: white;
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.dashboard-trunkland .card-grafico h3 {
+    color: #493321;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.dashboard-trunkland .card-grafico p {
+    color: #766452;
+    margin-bottom: 20px;
+}
+
+
+/* ÁREA ONDE O CHART.JS DESENHARÁ */
+
+.dashboard-trunkland .area-grafico {
+    position: relative;
+    width: 100%;
+    height: 320px;
+}
+
+
+/* PERFIL DO USUÁRIO */
 
 .dashboard-trunkland .perfil-dashboard {
     margin-top: 35px;
     padding: 25px;
+
     background-color: white;
     border-radius: 10px;
+
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -589,11 +726,13 @@ canvas {
 
 .dashboard-trunkland .informacoes-usuario strong {
     display: inline-block;
-    width: 110px;
+    width: 150px;
 }
 
-/* Rodapé */
 
+/* RODAPÉ */
+
+.dashboard-trunkland + .rodape,
 .dashboard-trunkland .rodape {
     padding: 18px;
     text-align: center;
@@ -602,27 +741,60 @@ canvas {
     font-size: 14px;
 }
 
-/* Ajuste para telas menores */
+
+/* ======================================================
+   RESPONSIVIDADE
+====================================================== */
+
+@media screen and (max-width: 900px) {
+
+    .dashboard-trunkland .header-left {
+        width: 25%;
+        min-width: 160px;
+    }
+
+    .dashboard-trunkland .dash {
+        width: 75%;
+        padding: 25px;
+    }
+
+    .dashboard-trunkland .btn-nav,
+    .dashboard-trunkland .btn-nav-white {
+        width: 80%;
+    }
+
+}
+
 
 @media screen and (max-width: 768px) {
 
-    .dashboard-trunkland .header-left {
-        width: 100%;
+    .dashboard-trunkland .cabecalho {
+        flex-direction: column;
         height: auto;
-        min-height: 0;
-        position: relative;
-        padding: 20px 0;
-        border-right: none;
-        border-bottom: 3px solid #b58b52;
+        padding: 15px;
     }
 
     .dashboard-trunkland .janela {
         flex-direction: column;
     }
 
+    .dashboard-trunkland .header-left {
+        position: relative;
+        top: auto;
+
+        width: 100%;
+        height: auto;
+        min-width: 0;
+
+        padding: 20px 0;
+
+        border-right: none;
+        border-bottom: 3px solid #b58b52;
+    }
+
     .dashboard-trunkland .dash {
         width: 100%;
-        left: 0;
+        min-height: auto;
         padding: 20px;
     }
 
@@ -630,7 +802,70 @@ canvas {
         flex-direction: column;
     }
 
-    .dashboard-trunkland .btn-logout {
-        margin-bottom: 0;
+    .dashboard-trunkland .card-dashboard {
+        width: 100%;
     }
+
+    .dashboard-trunkland .area-grafico {
+        height: 280px;
+    }
+
+    .dashboard-trunkland .informacoes-usuario strong {
+        width: auto;
+        margin-right: 8px;
+    }
+
 }
+
+
+
+@media screen and (max-width: 480px) {
+
+    .dashboard-trunkland .dash {
+        padding: 15px;
+    }
+
+    .dashboard-trunkland .card-grafico {
+        padding: 15px;
+    }
+
+    .dashboard-trunkland .area-grafico {
+        height: 250px;
+    }
+
+    .dashboard-trunkland .resumo-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ======================================================
+   AJUSTES DOS GRÁFICOS DA TRUNKLAND
+====================================================== */
+
+.dashboard-trunkland .graficos-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashboard-trunkland .card-grafico {
+    min-width: 0;
+}
+
+.dashboard-trunkland .area-grafico {
+    min-width: 0;
+}
+
+/* Ajuste dos cards em telas menores */
+
+@media screen and (max-width: 900px) {
+
+    .dashboard-trunkland .resumo-dashboard {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+

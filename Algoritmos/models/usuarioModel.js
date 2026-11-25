@@ -120,6 +120,89 @@ function cadastrar(nome, nacionalidade, email, senha, idReino, idTerritorio, idC
     return database.executar(instrucaoSql, valores);
 }
 
+// ======================================================
+// ESTATÍSTICAS DA DASHBOARD
+// ======================================================
+
+
+// CONTAR O TOTAL DE USUÁRIOS
+
+function contarUsuarios() {
+
+    var instrucaoSql = `
+        SELECT COUNT(*) AS total
+        FROM usuario;
+    `;
+
+    console.log("Contando usuários cadastrados...");
+
+    return database.executar(instrucaoSql);
+}
+
+
+// USUÁRIOS POR REINO
+
+function usuariosPorReino() {
+
+    var instrucaoSql = `
+        SELECT
+            r.nome,
+            COUNT(u.id_usuario) AS quantidade
+        FROM reino r
+        LEFT JOIN usuario u
+            ON r.id_reino = u.id_reino
+        GROUP BY r.id_reino, r.nome
+        ORDER BY quantidade DESC;
+    `;
+
+    console.log("Buscando usuários por reino...");
+
+    return database.executar(instrucaoSql);
+}
+
+
+// USUÁRIOS POR TERRITÓRIO
+
+function usuariosPorTerritorio() {
+
+    var instrucaoSql = `
+        SELECT
+            t.nome,
+            COUNT(u.id_usuario) AS quantidade
+        FROM territorio t
+        LEFT JOIN usuario u
+            ON t.id_territorio = u.id_territorio
+        GROUP BY t.id_territorio, t.nome
+        ORDER BY quantidade DESC;
+    `;
+
+    console.log("Buscando usuários por território...");
+
+    return database.executar(instrucaoSql);
+}
+
+
+// USUÁRIOS POR CLÃ
+
+function usuariosPorCla() {
+
+    var instrucaoSql = `
+        SELECT
+            c.nome,
+            COUNT(u.id_usuario) AS quantidade
+        FROM cla c
+        LEFT JOIN usuario u
+            ON c.id_cla = u.id_cla
+        GROUP BY c.id_cla, c.nome
+        ORDER BY quantidade DESC;
+    `;
+
+    console.log("Buscando usuários por clã...");
+
+    return database.executar(instrucaoSql);
+}
+
+
 
 // ======================================================
 // EXPORTAÇÃO
@@ -128,5 +211,11 @@ function cadastrar(nome, nacionalidade, email, senha, idReino, idTerritorio, idC
 module.exports = {
     autenticar,
     verificarTerritorioReino,
-    cadastrar
+    cadastrar,
+
+    // Funções da Dashboard
+    contarUsuarios,
+    usuariosPorReino,
+    usuariosPorTerritorio,
+    usuariosPorCla
 };

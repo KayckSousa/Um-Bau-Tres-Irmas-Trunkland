@@ -1,16 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dashboard | Trunkland</title>
+
+    <link rel="shortcut icon" href="assets/icon/favicon2.ico" type="image/x-icon">
+
+    <!-- REFERÊNCIA:
+         Estrutura da dashboard adaptada a partir do projeto AquaTech.
+         Conteúdo e funcionalidades desenvolvidos para Trunkland.
+    -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/dashboards.css">
+
+    <!-- Fonte Barlow -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
-<body>
+
+<body class="dashboard-trunkland">
+
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
 
     <header class="cabecalho">
+
         <a href="index.html" class="logo">
-            <img src="imagens/Logotipo Trunkland_ Baú Dourado Fantástico.png" alt="Logotipo Trunkland">
+            <img src="imagens/Logotipo Trunkland_ Baú Dourado Fantástico.png"
+                alt="Logotipo Trunkland">
         </a>
 
         <nav>
@@ -20,19 +50,231 @@
             <a class="nav-link" href="index.html#trunkland">Trunkland</a>
             <a class="nav-link" href="cadastro.html">Cadastro</a>
             <a class="nav-link" href="login.html">Login</a>
-            <a class="nav-link ativo" href="dashboard.html" aria-current="page">Dashboard</a>
+
+            <a class="nav-link ativo" href="dashboard.html" aria-current="page">
+                Dashboard
+            </a>
         </nav>
+
     </header>
 
-    <main>
-        <!-- Conteúdo da Dashboard (vazio por enquanto) -->
-    </main>
+
+    <!-- CONTEÚDO DA DASHBOARD -->
+
+    <div class="janela">
+
+        <!-- MENU LATERAL ADAPTADO DO AQUATECH -->
+
+        <aside class="header-left">
+
+            <h1>Trunkland</h1>
+
+            <div class="hello">
+                <h3>
+                    Olá,
+                    <span id="b_usuario">aventureiro</span>!
+                </h3>
+            </div>
+
+            <div class="btn-nav">
+                <a href="dashboard.html">
+                    <h3>Visão geral</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="index.html">
+                    <h3>Página inicial</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" id="btnSair">
+                <h3>Sair</h3>
+            </div>
+
+        </aside>
+
+
+        <!-- PAINEL PRINCIPAL -->
+
+        <main class="dash">
+
+            <div class="dashboard-titulo">
+
+                <h1>Painel de Trunkland</h1>
+
+                <p>
+                    Acompanhe sua jornada e conheça a distribuição
+                    dos membros pelos reinos, territórios e clãs.
+                </p>
+
+            </div>
+
+
+            <!-- CARDS DE RESUMO / KPIs -->
+
+            <section class="resumo-dashboard">
+
+                <div class="card-dashboard">
+                    <h3>Usuários cadastrados</h3>
+                    <p id="totalUsuarios">Carregando...</p>
+                </div>
+
+                <div class="card-dashboard">
+                    <h3>Reinos cadastrados</h3>
+                    <p id="totalReinos">Carregando...</p>
+                </div>
+
+                <div class="card-dashboard">
+                    <h3>Territórios cadastrados</h3>
+                    <p id="totalTerritorios">Carregando...</p>
+                </div>
+
+                <div class="card-dashboard">
+                    <h3>Clãs cadastrados</h3>
+                    <p id="totalClas">Carregando...</p>
+                </div>
+
+            </section>
+
+
+            <!-- GRÁFICOS ESTATÍSTICOS -->
+
+            <section class="graficos-dashboard">
+
+                <div class="titulo-graficos">
+
+                    <h2>Distribuição dos membros de Trunkland</h2>
+
+                    <p>
+                        Conheça a distribuição dos usuários entre
+                        os reinos, territórios e clãs.
+                    </p>
+
+                </div>
+
+
+                <!-- GRÁFICO DE REINOS -->
+
+                <div class="card-grafico">
+
+                    <h3>Membros por reino</h3>
+
+                    <p>
+                        Porcentagem de usuários cadastrados em cada reino.
+                    </p>
+
+                    <div class="area-grafico">
+                        <canvas id="graficoReinos"></canvas>
+                    </div>
+
+                </div>
+
+
+                <!-- GRÁFICO DE TERRITÓRIOS -->
+
+                <div class="card-grafico">
+
+                    <h3>Membros por território</h3>
+
+                    <p>
+                        Distribuição dos usuários entre os territórios.
+                    </p>
+
+                    <div class="area-grafico">
+                        <canvas id="graficoTerritorios"></canvas>
+                    </div>
+
+                </div>
+
+
+                <!-- GRÁFICO DE CLÃS -->
+
+                <div class="card-grafico">
+
+                    <h3>Membros por clã</h3>
+
+                    <p>
+                        Porcentagem de usuários pertencentes a cada clã.
+                    </p>
+
+                    <div class="area-grafico">
+                        <canvas id="graficoClas"></canvas>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMAÇÕES DO USUÁRIO -->
+
+            <section class="perfil-dashboard">
+
+                <h2>Minha jornada</h2>
+
+                <p>
+                    Estas são as informações da sua conta em Trunkland.
+                </p>
+
+                <div class="informacoes-usuario">
+
+                    <p>
+                        <strong>Nome:</strong>
+                        <span id="perfilNome">-</span>
+                    </p>
+
+                    <p>
+                        <strong>E-mail:</strong>
+                        <span id="perfilEmail">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Código do reino:</strong>
+                        <span id="perfilReino">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Código do território:</strong>
+                        <span id="perfilTerritorio">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Código do clã:</strong>
+                        <span id="perfilCla">-</span>
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- RODAPÉ E CRÉDITOS -->
 
     <footer class="rodape">
+
         <h3>Um Baú, Três Irmãs & Trunkland</h3>
-        <p>Uma história de fantasia, família e mistério.</p>
+
+        <p>
+            Interface adaptada a partir da dashboard do projeto AquaTech.
+            Conteúdo e funcionalidades desenvolvidos para o projeto Trunkland.
+        </p>
+
     </footer>
 
+
+    <!-- JAVASCRIPT DA DASHBOARD -->
+
+    <script src="assets/js/dashboard.js" defer></script>
+
+    <!-- JAVASCRIPT PRINCIPAL DO PROJETO -->
+
     <script src="assets/js/main.js" defer></script>
+
 </body>
+
 </html>

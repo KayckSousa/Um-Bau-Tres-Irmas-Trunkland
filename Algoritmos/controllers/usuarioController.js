@@ -4,9 +4,10 @@ var usuarioModel = require("../models/usuarioModel");
 // Biblioteca para proteger as senhas
 var bcrypt = require("bcryptjs");
 
+
 // ======================================================
 // CÓDIGO ORIGINAL DO WEB DATA VIZ
-// Mantido como comentário.
+// Mantido como comentário para consulta.
 // ======================================================
 
 /*
@@ -26,8 +27,7 @@ function autenticar(req, res) {
         usuarioModel.autenticar(email, senha)
             .then(function (resultadoAutenticar) {
 
-                console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
+                console.log(`Resultados encontrados: ${resultadoAutenticar.length}`);
 
                 if (resultadoAutenticar.length == 1) {
 
@@ -55,14 +55,11 @@ function autenticar(req, res) {
 
             }).catch(function (erro) {
                 console.log(erro);
-                console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             });
     }
 }
 
-
-// Função original de cadastro
 function cadastrar(req, res) {
 
     var nome = req.body.nomeServer;
@@ -85,7 +82,6 @@ function cadastrar(req, res) {
                 res.json(resultado);
             }).catch(function (erro) {
                 console.log(erro);
-                console.log("\nHouve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             });
     }
@@ -93,12 +89,15 @@ function cadastrar(req, res) {
 
 */
 
+
 // ======================================================
 // CÓDIGO ADAPTADO PARA O TRUNKLAND
 // ======================================================
 
 
+// ======================================================
 // AUTENTICAR USUÁRIO
+// ======================================================
 
 function autenticar(req, res) {
 
@@ -135,7 +134,7 @@ function autenticar(req, res) {
                 });
             }
 
-            // Não enviamos o hash da senha para o navegador
+            // Não envia o hash da senha para o navegador
             return res.status(200).json({
                 id_usuario: usuario.id_usuario,
                 nome: usuario.nome,
@@ -150,7 +149,7 @@ function autenticar(req, res) {
 
         .catch(function (erro) {
 
-            console.log(erro);
+            console.log("Erro ao realizar autenticação:", erro);
 
             return res.status(500).json({
                 mensagem: "Erro ao realizar a autenticação."
@@ -160,7 +159,9 @@ function autenticar(req, res) {
 }
 
 
+// ======================================================
 // CADASTRAR USUÁRIO
+// ======================================================
 
 function cadastrar(req, res) {
 
@@ -208,10 +209,13 @@ function cadastrar(req, res) {
 
         .then(function (resultadoVerificacao) {
 
-            // Se não encontrar a associação, interrompe o cadastro
+            // Interrompe o cadastro se a associação não existir
             if (resultadoVerificacao.length === 0) {
 
-                var erro = new Error("O território não pertence ao reino selecionado.");
+                var erro = new Error(
+                    "O território não pertence ao reino selecionado."
+                );
+
                 erro.codigoTrunkland = "TERRITORIO_INVALIDO";
 
                 throw erro;
@@ -245,7 +249,7 @@ function cadastrar(req, res) {
 
         .catch(function (erro) {
 
-            console.log(erro);
+            console.log("Erro ao realizar cadastro:", erro);
 
             // Território não pertence ao reino selecionado
             if (erro.codigoTrunkland === "TERRITORIO_INVALIDO") {
@@ -273,15 +277,60 @@ function cadastrar(req, res) {
             });
 
         });
-
 }
 
 
 // ======================================================
-// EXPORTAÇÃO
+// ESTATÍSTICAS DA DASHBOARD
+// ======================================================
+
+function estatisticas(req, res) {
+
+    // Executa as quatro consultas ao banco de dados
+    Promise.all([
+        usuarioModel.contarUsuarios(),
+        usuarioModel.usuariosPorReino(),
+        usuarioModel.usuariosPorTerritorio(),
+        usuarioModel.usuariosPorCla()
+    ])
+
+        .then(function (resultados) {
+
+            // Organiza os resultados recebidos
+            var totalUsuarios = resultados[0][0].total;
+
+            var porReino = resultados[1];
+            var porTerritorio = resultados[2];
+            var porCla = resultados[3];
+
+            // Envia os dados para o HTML
+            return res.status(200).json({
+                totalUsuarios: totalUsuarios,
+                porReino: porReino,
+                porTerritorio: porTerritorio,
+                porCla: porCla
+            });
+
+        })
+
+        .catch(function (erro) {
+
+            console.log("Erro ao buscar estatísticas:", erro);
+
+            return res.status(500).json({
+                mensagem: "Erro ao carregar as estatísticas da Dashboard."
+            });
+
+        });
+}
+
+
+// ======================================================
+// EXPORTAÇÃO DAS FUNÇÕES
 // ======================================================
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    estatisticas
 };

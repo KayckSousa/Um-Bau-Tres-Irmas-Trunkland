@@ -494,7 +494,7 @@ footer p {
             rgba(10, 8, 5, 0.65),
             rgba(10, 8, 5, 0.8)
         ),
-        url('/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/Estudo Encantado sob o Céu Estrelado.png');
+        url('../imagens/Estudo Encantado sob o Céu Estrelado.png');
 
     background-size: cover;
     background-position: center;
@@ -1085,7 +1085,7 @@ footer p {
             rgba(10, 8, 5, 0.65),
             rgba(10, 8, 5, 0.80)
         ),
-        url("/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/viloes.png");
+        url("../imagens/viloes.png");
 
     background-size: cover;
     background-position: center;
@@ -1200,7 +1200,7 @@ footer p {
             rgba(10, 8, 5, 0.45),
             rgba(10, 8, 5, 0.75)
         ),
-        url("/home/aluno/Documentos/PJ-Individual/Um-Bau-Tres-Irmas-Trunkland/Algoritmos/imagens/seresmagicos.png");
+        url("../imagens/seresmagicos.png");
 
     background-size: cover;
     background-position: center;
