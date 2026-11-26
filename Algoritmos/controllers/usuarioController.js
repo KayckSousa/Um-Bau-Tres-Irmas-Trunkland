@@ -151,6 +151,13 @@ function autenticar(req, res) {
 
             console.log("Erro ao realizar autenticação:", erro);
 
+            // Se for erro de conexão com o banco, devolver informação mais clara
+            if (erro && erro.isDbConnectionError) {
+                return res.status(503).json({
+                    mensagem: "Não foi possível conectar ao banco de dados. Tente novamente mais tarde."
+                });
+            }
+
             return res.status(500).json({
                 mensagem: "Erro ao realizar a autenticação."
             });
@@ -272,6 +279,13 @@ function cadastrar(req, res) {
                 });
             }
 
+            // Erro ao conectar com o banco
+            if (erro && erro.isDbConnectionError) {
+                return res.status(503).json({
+                    mensagem: "Não foi possível conectar ao banco de dados. Tente novamente mais tarde."
+                });
+            }
+
             return res.status(500).json({
                 mensagem: "Erro ao realizar o cadastro."
             });
@@ -316,6 +330,12 @@ function estatisticas(req, res) {
         .catch(function (erro) {
 
             console.log("Erro ao buscar estatísticas:", erro);
+
+            if (erro && erro.isDbConnectionError) {
+                return res.status(503).json({
+                    mensagem: "Não foi possível conectar ao banco de dados. Tente novamente mais tarde."
+                });
+            }
 
             return res.status(500).json({
                 mensagem: "Erro ao carregar as estatísticas da Dashboard."

@@ -6,12 +6,24 @@ var mysql = require("mysql2");
 // ======================================================
 
 var mySqlConfig = {
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT
+    host: process.env.DB_HOST || "127.0.0.1",
+    database: process.env.DB_DATABASE || "",
+    user: process.env.DB_USER || "",
+    password: process.env.DB_PASSWORD || "",
+    // garante que a porta seja um número (mysql2 aceita string, mas é mais claro)
+    port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 3306
 };
+
+// Tempo máximo (ms) para tentar conectar ao MySQL antes de falhar.
+// Reduz o tempo de espera quando o banco não está disponível localmente.
+mySqlConfig.connectTimeout = process.env.DB_CONNECT_TIMEOUT ? parseInt(process.env.DB_CONNECT_TIMEOUT, 10) : 5000;
+mySqlConfig.multipleStatements = false;
+
+// Quando o host estiver como 'localhost', o driver às vezes tenta
+// usar socket Unix e pode bloquear; forçamos 127.0.0.1 para TCP.
+if (String(mySqlConfig.host).trim().toLowerCase() === 'localhost') {
+    mySqlConfig.host = '127.0.0.1';
+}
 
 
 // ======================================================
@@ -39,8 +51,13 @@ function executar(instrucao, parametros) {
     return new Promise(function (resolve, reject) {
 
         // Cria uma conexão com o banco de dados
-        var conexao = mysql.createConnection(mySqlConfig);
-
+        var conexao;
+        try {
+            conexao = mysql.createConnection(mySqlConfig);
+        } catch (err) {
+            console.error("ERRO AO CRIAR CONEXÃO MySQL:", err);
+            return reject(err);
+        }
 
         // ==================================================
         // ESTABELECER CONEXÃO COM O MYSQL
@@ -50,14 +67,14 @@ function executar(instrucao, parametros) {
 
             if (erroConexao) {
 
-                console.error(
-                    "ERRO AO CONECTAR AO MYSQL SERVER:",
-                    erroConexao
-                );
+                // Mensagem clara para quando a conexão é recusada
+                console.error("ERRO AO CONECTAR AO MYSQL SERVER:", erroConexao);
+
+                // Anexa uma flag para identificação pelo controller
+                erroConexao.isDbConnectionError = true;
 
                 return reject(erroConexao);
             }
-
 
             // ==================================================
             // EXECUTAR CONSULTA SQL
@@ -67,61 +84,38 @@ function executar(instrucao, parametros) {
 
                 // Encerra a conexão após a consulta
                 conexao.end(function (erroFechamento) {
-
                     if (erroFechamento) {
-                        console.error(
-                            "ERRO AO ENCERRAR CONEXÃO:",
-                            erroFechamento
-                        );
+                        console.error("ERRO AO ENCERRAR CONEXÃO:", erroFechamento);
                     }
-
                 });
-
 
                 // Verifica se ocorreu erro na consulta
                 if (erro) {
-
-                    console.error(
-                        "ERRO NA CONSULTA SQL:",
-                        erro
-                    );
-
+                    console.error("ERRO NA CONSULTA SQL:", erro);
                     return reject(erro);
                 }
 
-
-                // Exibe o resultado da consulta no terminal
+                // Exibe o resultado da consulta no terminal (útil para debug)
                 console.log("RESULTADO DA CONSULTA SQL:");
                 console.log(resultados);
 
-
                 return resolve(resultados);
-
             };
-
 
             // ==================================================
             // EXECUTAR COM OU SEM PARÂMETROS
             // ==================================================
 
             if (parametros && Array.isArray(parametros)) {
-
-                // Consultas que utilizam parâmetros (?)
-                conexao.query(
-                    instrucao,
-                    parametros,
-                    callback
-                );
-
+                conexao.query(instrucao, parametros, callback);
             } else {
-
-                // Consultas sem parâmetros
-                conexao.query(
-                    instrucao,
-                    callback
-                );
-
+                conexao.query(instrucao, callback);
             }
+
+            // Captura erros no nível da conexão (evita crash silencioso)
+            conexao.on('error', function (erro) {
+                console.error('ERRO NO MySQL SERVER (on error):', erro);
+            });
 
         });
 

@@ -44,7 +44,9 @@ app.use(cors());
 
 // Disponibiliza HTML, CSS, JavaScript e imagens
 // Os arquivos do Trunkland estão diretamente na raiz do projeto
+// e também no diretório 'public' quando existir.
 app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // registro simples de requisições para auxiliar no diagnóstico
 app.use(function (req, res, next) {
@@ -97,8 +99,8 @@ app.use("/usuarios", usuarioRouter);
 // INICIALIZAÇÃO DO SERVIDOR
 // ======================================================
 
-app.listen(PORTA_APP, HOST_APP, function () {
-
+// Inicializa o servidor e adiciona tratamento de erro para EADDRINUSE
+var server = app.listen(PORTA_APP, HOST_APP, function () {
     console.log(`
     ==========================================
                   TRUNKLAND
@@ -114,7 +116,25 @@ app.listen(PORTA_APP, HOST_APP, function () {
 
     ==========================================
     `);
+});
 
+server.on('error', function (err) {
+    if (err && err.code === 'EADDRINUSE') {
+        console.error(`Porta ${PORTA_APP} já está em uso (${HOST_APP}:${PORTA_APP}).`);
+        console.error('Dica: verifique processos em execução ou altere a variável APP_PORT.');
+        process.exit(1);
+    }
+    throw err;
+});
+
+
+// Evita que erros não tratados encerrem o processo sem log útil
+process.on('uncaughtException', function (err) {
+    console.error('UNCAUGHT EXCEPTION:', err && err.stack ? err.stack : err);
+});
+
+process.on('unhandledRejection', function (reason, promise) {
+    console.error('UNHANDLED REJECTION at:', promise, 'reason:', reason);
 });
 
 
